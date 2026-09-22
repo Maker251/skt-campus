@@ -65,7 +65,7 @@
     .brand-logo .brand-top {
       font-size: 0.76rem;
       font-weight: 800;
-      color: var(--primary-blue); /* 찾아가는 캠퍼스와 동일한 블루 적용 */
+      color: var(--primary-blue);
       line-height: 1.1;
       letter-spacing: -0.2px;
     }
@@ -400,6 +400,8 @@
     .tt-desc span {
       font-size: 0.78rem;
       color: #6b7684;
+      line-height: 1.35;
+      display: block;
     }
 
     /* 웰컴 기프트 배너 */
@@ -556,12 +558,6 @@
       background: #FAF9FF;
       box-shadow: 0 6px 18px rgba(27, 22, 200, 0.09);
     }
-    .snap-stop {
-      font-size: 0.68rem;
-      font-weight: 800;
-      color: var(--primary-blue);
-      margin-bottom: 4px;
-    }
     .snap-name {
       font-size: 1.05rem;
       font-weight: 800;
@@ -574,10 +570,10 @@
     }
     .snap-badge {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 0.7rem;
       font-weight: 700;
-      padding: 3px 6px;
+      padding: 3px 8px;
       border-radius: 4px;
       background: #EEF2FF;
       color: var(--primary-blue);
@@ -630,7 +626,7 @@
     </div>
     <div class="hero-sub">진로 상담부터 특별한 캠퍼스 경험까지<br />충남대학교에서 함께합니다!</div>
     <p class="hero-desc">
-      코칭 클래스와 일상에 유용한 캠퍼스 Zone 혜택이<br />
+      코칭 클래스와 캠퍼스 Zone 혜택이<br />
       충남대학교 학우 여러분을 직접 찾아왔습니다.
     </p>
     <div class="hero-curve"></div>
@@ -667,7 +663,7 @@
         </div>
         <div class="cnu-row">
           <span class="cnu-label">장소</span>
-          <span class="cnu-val">코칭 클래스(인문대학 W7동 137호) / 캠퍼스 Zone(TBD)</span>
+          <span class="cnu-val">코칭 클래스(인문대학 W7동 137호) / 캠퍼스 Zone(축제 메인 행사장)</span>
         </div>
         <div class="cnu-row">
           <span class="cnu-label">참여 대상</span>
@@ -687,10 +683,10 @@
       <span class="coaching-badge">멘토링 & 세미나</span>
       <h3 class="coaching-main-title">SK 아카데미 코칭 위원과 함께하는<br />코칭 클래스 ‘열린 상담실’</h3>
       <p class="coaching-lead-text">
-        학업, 진로, 취업 준비 과정에서 마주하는 고민을 나누고 코칭 위원들이 현업에서 깨달은 인사이트를 얻어 가세요.
+        학업, 진로, 취업 준비 과정에서 마주하는 고민을 나누고 코칭 위원들이 현업에서 깨달은 실전 인사이트를 얻어 가세요.
       </p>
 
-      <!-- 강사 2인 프로필 (사진 로드 실패 시 글자 아바타 자동 표시 백업 적용) -->
+      <!-- 강사 2인 프로필 -->
       <div class="speakers-wrap">
         <div class="speaker-card">
           <div class="speaker-avatar">
@@ -698,7 +694,7 @@
           </div>
           <div class="speaker-info">
             <h4>허근만 <span>SK 아카데미 코칭 위원</span></h4>
-            <p>SK 텔레콤 본부장 역임<br />SK ons 대표 역임</p>
+            <p>SK 텔레콤 본부장 역임<br />SK ons 대표이사 역임</p>
           </div>
         </div>
 
@@ -708,7 +704,7 @@
           </div>
           <div class="speaker-info">
             <h4>이원희 <span>SK SE컨설턴트</span></h4>
-            <p>SK 네트웍스, SK 매직, 엔코아 전략 담당 역임</p>
+            <p>SK 네트웍스 / SK 매직 / 엔코아 전략 담당 역임</p>
           </div>
         </div>
       </div>
@@ -737,14 +733,14 @@
           <div class="tt-time">14:05 ~ 14:55</div>
           <div class="tt-desc">
             <strong>세미나 1. 신입사원에서 대기업 임원까지 – 나의 성장 이야기</strong>
-            <span>허근만 코칭 위원 · SK 텔레콤 본부장, SK ons 대표 역임</span>
+            <span>허근만 코칭 위원<br />SK 텔레콤 본부장, SK ons 대표이사 역임</span>
           </div>
         </div>
         <div class="timetable-row">
           <div class="tt-time">15:00 ~ 15:50</div>
           <div class="tt-desc">
             <strong>세미나 2. AI시대에서 우리에게 필요한 것은?</strong>
-            <span>이원희 SK SE컨설턴트 · SK 네트웍스, SK 매직, 엔코아 전략 담당 역임</span>
+            <span>이원희 SK SE컨설턴트<br />SK 네트웍스 / SK 매직 / 엔코아 전략 담당 역임</span>
           </div>
         </div>
         <div class="timetable-row">
@@ -756,7 +752,7 @@
         </div>
       </div>
 
-      <!-- 참가자 전원 Welcome Gift 배너 (220V 규격 아이콘 반영) -->
+      <!-- 참가자 전원 Welcome Gift 배너 (220V 충전기 본체 SVG 아이콘 적용) -->
       <div class="gift-box-wrap">
         <div class="gift-box-title">참가자 전원에게 <span>Welcome Gift</span> 제공</div>
         <div class="gift-box-items">
@@ -767,24 +763,25 @@
           <span style="font-weight: 800; color: #8b95a1;">+</span>
           <div class="gift-pill">
             <span class="pill-tag">Gift 2</span>
-            <!-- 220V 2구 콘센트 SVG 아이콘 -->
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;">
-              <circle cx="12" cy="12" r="10"></circle>
-              <circle cx="8" cy="12" r="2" fill="#1b16c8"></circle>
-              <circle cx="16" cy="12" r="2" fill="#1b16c8"></circle>
+            <!-- 220V 고속충전기 헤드 + 포트 SVG 아이콘 -->
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;">
+              <rect x="5" y="7" width="14" height="14" rx="3"></rect>
+              <line x1="8" y1="2" x2="8" y2="7"></line>
+              <line x1="16" y1="2" x2="16" y2="7"></line>
+              <line x1="10" y1="14" x2="14" y2="14" stroke-width="2.5"></line>
             </svg>
             <span>25W 고속충전기</span>
           </div>
         </div>
       </div>
 
-      <!-- 본문 내 사전 참석 예약 버튼 유지 -->
+      <!-- 사전 참석 예약 버튼 -->
       <a href="javascript:alert('코칭 클래스 사전 참석 예약 페이지로 이동합니다 (선착순 접수)');" class="reserve-btn">
         코칭 클래스 사전 참석 예약하기 ➔
       </a>
     </div>
 
-    <!-- PROGRAM 02: 캠퍼스 Zone (2X2 정사각형 그리드 원형 유지) -->
+    <!-- PROGRAM 02: 캠퍼스 Zone -->
     <div class="sec-header scroll-target" id="section-zone">
       <span class="sec-tag">PROGRAM 02</span>
       <h2 class="sec-title">캠퍼스 Zone</h2>
@@ -809,10 +806,10 @@
         </div>
         <h4 class="zone-title">너프건 사격 이벤트</h4>
         <p class="zone-sub">사격 점수에 따라<br />푸짐한 경품 증정</p>
-        <span class="zone-chip">보조배터리 외</span>
+        <span class="zone-chip">보조 배터리 외</span>
       </div>
 
-      <!-- Item 3: 단말 케어 & 필름 교체 ('및' 제거 반영) -->
+      <!-- Item 3: 단말 케어 & 필름 교체 -->
       <div class="zone-square-card">
         <div class="zone-icon-circle">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
@@ -822,7 +819,7 @@
         <span class="zone-chip">이동형 A/S 버스</span>
       </div>
 
-      <!-- Item 4: SKT 서비스 (타이틀 변경 및 줄바꿈 적용) -->
+      <!-- Item 4: SKT 서비스 -->
       <div class="zone-square-card">
         <div class="zone-icon-circle">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -833,7 +830,7 @@
       </div>
     </div>
 
-    <!-- 순회 일정 (가로 슬라이드 스크롤 형태 원형 유지) -->
+    <!-- 순회 일정 (가로 슬라이드 스크롤 형태) -->
     <div class="tour-scroll-header scroll-target" id="section-tour">
       <div>
         <span class="sec-tag">CAMPUS TOUR</span>
@@ -846,65 +843,58 @@
       <!-- 1회차: 충남대학교 -->
       <div class="tour-snap-card active">
         <div>
-          <div class="snap-stop">1회차</div>
           <div class="snap-name">충남대학교</div>
           <div class="snap-date">9월 30일 (수)</div>
         </div>
-        <span class="snap-badge">진행 예정</span>
+        <span class="snap-badge">1회차 · 진행 예정</span>
       </div>
       <!-- 2회차: 충북대학교 -->
       <div class="tour-snap-card">
         <div>
-          <div class="snap-stop">2회차</div>
           <div class="snap-name">충북대학교</div>
           <div class="snap-date">10월 7일 (수)</div>
         </div>
-        <span class="snap-badge">일정 확정</span>
+        <span class="snap-badge">2회차 · 일정 확정</span>
       </div>
       <!-- 3회차: 대구대학교 -->
       <div class="tour-snap-card">
         <div>
-          <div class="snap-stop">3회차</div>
           <div class="snap-name">대구대학교</div>
           <div class="snap-date">10월 14일 (수)</div>
         </div>
-        <span class="snap-badge">일정 확정</span>
+        <span class="snap-badge">3회차 · 일정 확정</span>
       </div>
       <!-- 4회차: 육군부사관학교 -->
       <div class="tour-snap-card">
         <div>
-          <div class="snap-stop">4회차</div>
           <div class="snap-name">육군부사관학교</div>
           <div class="snap-date">10월 26일 (월)</div>
         </div>
-        <span class="snap-badge">일정 확정</span>
+        <span class="snap-badge">4회차 · 일정 확정</span>
       </div>
       <!-- 5회차: 전남대학교 -->
       <div class="tour-snap-card">
         <div>
-          <div class="snap-stop">5회차</div>
           <div class="snap-name">전남대학교</div>
           <div class="snap-date">10월 28일 (수)</div>
         </div>
-        <span class="snap-badge">일정 확정</span>
+        <span class="snap-badge">5회차 · 일정 확정</span>
       </div>
       <!-- 6회차: 서울시립대학교 -->
       <div class="tour-snap-card">
         <div>
-          <div class="snap-stop">6회차</div>
           <div class="snap-name">서울시립대학교</div>
           <div class="snap-date">11월 2일 (월)</div>
         </div>
-        <span class="snap-badge">일정 확정</span>
+        <span class="snap-badge">6회차 · 일정 확정</span>
       </div>
       <!-- 7회차: 부산대학교 -->
       <div class="tour-snap-card">
         <div>
-          <div class="snap-stop">7회차</div>
           <div class="snap-name">부산대학교</div>
           <div class="snap-date">11월 4일 (수)</div>
         </div>
-        <span class="snap-badge">일정 확정</span>
+        <span class="snap-badge">7회차 · 일정 확정</span>
       </div>
     </div>
 
@@ -921,36 +911,49 @@
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('.scroll-target');
 
+    function setActiveTab(targetId) {
+      tabs.forEach(tab => {
+        if (tab.getAttribute('data-target') === targetId) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+
     // 1. 탭 클릭 시 밑줄 즉시 이동
     tabs.forEach(tab => {
       tab.addEventListener('click', function() {
-        tabs.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
+        setActiveTab(this.getAttribute('data-target'));
       });
     });
 
-    // 2. 스크롤 이동 시 현재 보이는 섹션에 맞춰 탭 밑줄 자동 동기화
-    const observerOptions = {
-      root: null,
-      rootMargin: '-25% 0px -60% 0px',
-      threshold: 0
-    };
+    // 2. 스크롤 위치 계산 및 최하단 도달 시 마지막 탭(순회 일정) 완벽 활성화
+    function onScroll() {
+      const scrollPos = window.scrollY + 120;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          tabs.forEach(tab => {
-            if (tab.getAttribute('data-target') === id) {
-              tabs.forEach(t => t.classList.remove('active'));
-              tab.classList.add('active');
-            }
-          });
+      // 페이지 최하단에 도달한 경우 마지막 '순회 일정' 탭 강제 활성화
+      if (window.scrollY + windowHeight >= docHeight - 30) {
+        setActiveTab('section-tour');
+        return;
+      }
+
+      let currentId = '';
+      sections.forEach(sec => {
+        if (sec.offsetTop <= scrollPos) {
+          currentId = sec.getAttribute('id');
         }
       });
-    }, observerOptions);
 
-    sections.forEach(sec => observer.observe(sec));
+      if (currentId) {
+        setActiveTab(currentId);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', onScroll);
   </script>
 
 </body>
