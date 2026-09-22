@@ -131,7 +131,7 @@
       background: #ffffff;
       color: var(--primary-blue);
       border-radius: 22px;
-      padding: 22px 18px;
+      padding: 20px 18px;
       box-shadow: 0 12px 28px rgba(0,0,0,0.18);
       margin-bottom: 18px;
       display: inline-block;
@@ -139,10 +139,24 @@
       max-width: 340px;
     }
     .hero-box h1 {
-      font-size: 1.85rem;
-      font-weight: 900;
       letter-spacing: -1px;
       line-height: 1.25;
+      margin: 0;
+    }
+    .hero-box-small {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+    .hero-box-main {
+      display: block;
+      font-size: 1.95rem;
+      font-weight: 900;
+      color: var(--primary-blue);
+      letter-spacing: -1px;
     }
     .hero-sub {
       font-size: 1.15rem;
@@ -617,7 +631,10 @@
     <div class="hero-period">2026. 09. 30(수) 충남대학교</div>
     <br />
     <div class="hero-box">
-      <h1>SK텔레콤 찾아가는 캠퍼스</h1>
+      <h1>
+        <span class="hero-box-small">SK텔레콤</span>
+        <span class="hero-box-main">찾아가는 캠퍼스</span>
+      </h1>
     </div>
     <div class="hero-sub">진로 상담부터 특별한 캠퍼스 경험까지<br />충남대학교에서 함께합니다!</div>
     <div class="hero-curve"></div>
