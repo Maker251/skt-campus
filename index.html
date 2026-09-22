@@ -2,809 +2,956 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SK telecom 찾아가는 캠퍼스 - 충남대학교</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SK텔레콤 찾아가는 캠퍼스 × 충남대학교</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <style>
-    :root {
-      --primary: #1b16c8;
-      --primary-dark: #0d0a68;
-      --skt-red: #ea002c;
-      --bg-gray: #f8fafc;
-      --border: #e2e8f0;
-      --text-dark: #191f28;
-      --text-sub: #4e5968;
-      --text-light: #8b95a1;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: var(--bg-gray);
-      color: var(--text-dark);
-      line-height: 1.6;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FAF8F2;
+      color: #191f28;
+      line-height: 1.5;
       word-break: keep-all;
+      padding-bottom: 0;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --primary-blue: #1b16c8;
+      --deep-navy: #0d0a68;
+      --light-blue: #ECEBFF;
+      --cream-bg: #FAF8F2;
+      --card-white: #FFFFFF;
+      --text-main: #191f28;
+      --text-sub: #6b7684;
+      --border-color: rgba(27, 22, 200, 0.08);
     }
 
-    /* GNB */
-    .gnb {
+    /* 최상단 어닝 스트라이프 바 */
+    .awning-stripe {
+      width: 100%;
+      height: 12px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--primary-blue),
+        var(--primary-blue) 12px,
+        #ffffff 12px,
+        #ffffff 24px
+      );
+    }
+
+    /* 담백한 언더라인 헤더 (GNB) */
+    .mobile-header-final {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(250, 248, 242, 0.96);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
-    .gnb-inner {
-      max-width: 1040px;
-      margin: 0 auto;
+    .header-logo-row {
+      padding: 14px 20px 8px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: flex-start;
     }
-    .gnb-logo {
+    .brand-logo {
       display: flex;
       flex-direction: column;
       text-decoration: none;
     }
-    .gnb-logo-top {
-      font-size: 0.75rem;
+    .brand-logo .brand-top {
+      font-size: 0.72rem;
       font-weight: 800;
-      color: var(--skt-red);
+      color: #ea002c;
       line-height: 1.1;
     }
-    .gnb-logo-bottom {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--primary);
+    .brand-logo .brand-bottom {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--primary-blue);
+      letter-spacing: -0.5px;
       line-height: 1.2;
     }
-    .gnb-menu {
+    .tab-nav {
       display: flex;
-      list-style: none;
-      gap: 20px;
+      padding: 0 12px;
+      border-top: 1px solid rgba(0,0,0,0.04);
     }
-    .gnb-menu a {
-      text-decoration: none;
-      font-size: 0.92rem;
+    .tab-btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 4px;
+      font-size: 0.88rem;
       font-weight: 600;
-      color: var(--text-sub);
+      color: #717680;
+      text-decoration: none;
+      position: relative;
+      letter-spacing: -0.3px;
       transition: color 0.2s;
     }
-    .gnb-menu a:hover {
-      color: var(--primary);
+    .tab-btn.active {
+      color: var(--primary-blue);
+      font-weight: 800;
+    }
+    .tab-btn.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 15%;
+      width: 70%;
+      height: 2.5px;
+      background: var(--primary-blue);
+      border-radius: 2px;
     }
 
-    /* 레이아웃 공통 */
-    .wrap {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .section-pad {
-      padding: 64px 0;
-    }
-    .sec-header {
+    /* 모바일 히어로 (About) */
+    .mobile-hero {
+      background: var(--primary-blue);
+      color: #ffffff;
+      padding: 40px 20px 52px;
       text-align: center;
-      margin-bottom: 36px;
+      position: relative;
+      scroll-margin-top: 90px;
     }
-    .sec-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--primary);
-      background: rgba(27, 22, 200, 0.08);
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 8px;
-    }
-    .sec-title {
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: var(--text-dark);
-      margin-bottom: 6px;
-    }
-    .sec-sub {
-      font-size: 0.96rem;
-      color: var(--text-sub);
-    }
-
-    /* 히어로 */
-    .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: var(--white);
-      padding: 72px 0 64px;
-      text-align: center;
-    }
-    .hero-badge {
+    .hero-period {
       display: inline-block;
       background: rgba(255, 255, 255, 0.16);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
       font-weight: 700;
       margin-bottom: 16px;
     }
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 14px;
+    .hero-box {
+      background: #ffffff;
+      color: var(--primary-blue);
+      border-radius: 22px;
+      padding: 22px 18px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      margin-bottom: 18px;
+      display: inline-block;
+      width: 100%;
+      max-width: 340px;
+    }
+    .hero-box h1 {
+      font-size: 1.9rem;
+      font-weight: 900;
+      letter-spacing: -1px;
       line-height: 1.25;
     }
     .hero-sub {
-      font-size: 1.18rem;
-      font-weight: 600;
-      color: #e2e8f0;
-      margin-bottom: 10px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 8px;
     }
     .hero-desc {
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      max-width: 600px;
-      margin: 0 auto 28px;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.5;
     }
-    .hero-btn {
-      display: inline-block;
-      background: var(--white);
-      color: var(--primary);
-      font-size: 0.96rem;
-      font-weight: 700;
-      padding: 13px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-      transition: transform 0.15s;
-    }
-    .hero-btn:hover {
-      transform: translateY(-2px);
+    .hero-curve {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 28px;
+      background: var(--cream-bg);
+      border-radius: 28px 28px 0 0;
     }
 
-    /* SUMMARY 운영 안내 카드 */
-    .summary-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 28px;
-      border: 1px solid var(--border);
-      max-width: 680px;
-      margin: 0 auto;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    /* 본문 컨테이너 */
+    .container {
+      padding: 24px 18px 40px;
     }
-    .summary-row {
+
+    /* 섹션 스크롤 마진 */
+    .scroll-target {
+      scroll-margin-top: 96px;
+    }
+
+    /* 섹션 헤더 */
+    .sec-header {
+      margin-bottom: 16px;
+    }
+    .sec-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      letter-spacing: 1.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .sec-title {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--deep-navy);
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+    }
+    .sec-sub {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    /* 충남대 첫날 전용 상세 일정 카드 (About 바로 아래) */
+    .cnu-schedule-card {
+      background: var(--card-white);
+      border: 2px solid var(--primary-blue);
+      border-radius: 20px;
+      padding: 22px 18px;
+      margin-bottom: 44px;
+      box-shadow: 0 8px 24px rgba(27, 22, 200, 0.08);
+    }
+    .cnu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f5;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .cnu-title-area h3 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--deep-navy);
+    }
+    .cnu-title-area p {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+    .cnu-kickoff-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: var(--primary-blue);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .cnu-info-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cnu-row {
       display: flex;
       align-items: flex-start;
-      padding: 12px 0;
-      border-bottom: 1px solid #edf2f7;
-      font-size: 0.95rem;
+      gap: 10px;
+      font-size: 0.88rem;
     }
-    .summary-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    .cnu-label {
+      flex: 0 0 64px;
+      font-weight: 800;
+      color: var(--primary-blue);
+      background: var(--light-blue);
+      padding: 3px 6px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 0.75rem;
     }
-    .summary-label {
-      width: 80px;
-      font-weight: 700;
-      color: var(--text-sub);
-      flex-shrink: 0;
-    }
-    .summary-val {
+    .cnu-val {
+      flex: 1;
+      color: #333d4b;
       font-weight: 600;
-      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .cnu-val strong {
+      color: var(--text-main);
+      font-weight: 800;
     }
 
-    /* 코칭 클래스 카드 */
+    /* PROGRAM 01: 코칭 클래스 카드 */
     .coaching-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 34px 28px;
-      border: 1px solid var(--border);
-      max-width: 820px;
-      margin: 0 auto;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      background: var(--card-white);
+      border-radius: 22px;
+      padding: 22px 18px;
+      border: 1.5px solid var(--border-color);
+      box-shadow: 0 6px 20px rgba(27, 22, 200, 0.05);
+      margin-bottom: 44px;
     }
     .coaching-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: var(--light-blue);
+      color: var(--primary-blue);
+      padding: 3px 8px;
+      border-radius: 6px;
       display: inline-block;
-      background: #eff6ff;
-      color: var(--primary);
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 4px 8px;
-      border-radius: 4px;
       margin-bottom: 10px;
     }
-    .coaching-title {
-      font-size: 1.45rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-      line-height: 1.35;
+    .coaching-main-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--deep-navy);
+      margin-bottom: 6px;
+      line-height: 1.3;
     }
-    .coaching-desc {
-      font-size: 0.94rem;
+    .coaching-lead-text {
+      font-size: 0.88rem;
       color: var(--text-sub);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
 
-    /* 코칭위원 프로필 */
-    .coach-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 24px;
+    /* 강사 2인 프로필 */
+    .speakers-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 22px;
     }
-    @media (max-width: 650px) {
-      .coach-list {
-        grid-template-columns: 1fr;
-      }
-    }
-    .coach-box {
-      background: var(--bg-gray);
-      border: 1px solid #edf2f7;
-      border-radius: 12px;
-      padding: 18px;
-    }
-    .coach-head {
+    .speaker-card {
+      background: #FAF9FF;
+      border: 1px solid rgba(27, 22, 200, 0.12);
+      border-radius: 14px;
+      padding: 14px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
+      gap: 14px;
     }
-    .coach-avatar {
-      width: 56px;
-      height: 56px;
+    .speaker-avatar {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      overflow: hidden;
+      background: var(--primary-blue);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 900;
       flex-shrink: 0;
-      border: 2px solid var(--white);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      background: #e2e8f0;
+      overflow: hidden;
+      border: 1.5px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
-    .coach-avatar img {
+    .speaker-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center 15%;
       display: block;
     }
-    .coach-meta-role {
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .coach-meta-name {
-      font-size: 1.15rem;
+    .speaker-info h4 {
+      font-size: 1rem;
       font-weight: 800;
-      color: var(--text-dark);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .coach-history {
-      list-style: none;
-      font-size: 0.82rem;
+    .speaker-info h4 span {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+    .speaker-info p {
+      font-size: 0.8rem;
       color: var(--text-sub);
-      line-height: 1.5;
-    }
-    .coach-history li {
-      position: relative;
-      padding-left: 10px;
-      margin-bottom: 2px;
-    }
-    .coach-history li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
+      margin-top: 2px;
+      line-height: 1.4;
     }
 
     /* 타임테이블 */
-    .program-table-wrap {
-      border: 1px solid var(--border);
-      border-radius: 10px;
+    .timetable-box {
+      background: #FFFFFF;
+      border: 1px solid #ECECF2;
+      border-radius: 14px;
       overflow: hidden;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
-    .program-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-    .program-table th {
-      background: var(--primary);
-      color: var(--white);
+    .timetable-header {
+      background: #F4F5F9;
       padding: 10px 14px;
-      font-weight: 700;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #4e5968;
+      border-bottom: 1px solid #ECECF2;
     }
-    .program-table td {
+    .timetable-row {
+      display: flex;
       padding: 12px 14px;
-      border-bottom: 1px solid #edf2f7;
-      vertical-align: middle;
-      background: var(--white);
+      border-bottom: 1px solid #F0F0F5;
+      font-size: 0.85rem;
+      align-items: flex-start;
+      gap: 10px;
     }
-    .program-table tr:last-child td {
+    .timetable-row:last-child {
       border-bottom: none;
     }
-    .program-table .time-col {
-      font-weight: 700;
-      color: var(--primary);
-      text-align: center;
-      width: 28%;
-      white-space: nowrap;
+    .tt-time {
+      flex: 0 0 88px;
+      font-weight: 800;
+      color: var(--primary-blue);
+      font-size: 0.8rem;
     }
-    .prog-title {
-      font-weight: 700;
-      color: var(--text-dark);
+    .tt-desc {
+      flex: 1;
+      color: #333d4b;
     }
-    .prog-speaker {
+    .tt-desc strong {
+      display: block;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 0.88rem;
+      margin-bottom: 2px;
+    }
+    .tt-desc span {
       font-size: 0.78rem;
-      color: var(--text-sub);
-      margin-top: 3px;
+      color: #6b7684;
     }
 
-    /* 웰컴 기프트 */
-    .gift-wrap {
-      background: #f4f5fc;
-      border-radius: 12px;
-      padding: 20px;
+    /* 웰컴 기프트 배너 (신규 추가 요소도 기존 카드 무드에 통합) */
+    .gift-box-wrap {
+      background: #FAF9FF;
+      border: 1px dashed rgba(27, 22, 200, 0.25);
+      border-radius: 14px;
+      padding: 14px 12px;
       text-align: center;
-      border: 1px solid #e0e4f6;
+      margin-bottom: 20px;
     }
-    .gift-title {
-      font-size: 1.05rem;
+    .gift-box-title {
+      font-size: 0.88rem;
       font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 14px;
+      color: var(--deep-navy);
+      margin-bottom: 10px;
     }
-    .gift-title span {
-      color: var(--primary);
+    .gift-box-title span {
+      color: var(--primary-blue);
     }
-    .gift-flex {
+    .gift-box-items {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
     }
-    .gift-item {
-      background: var(--white);
+    .gift-pill {
+      background: #ffffff;
+      border: 1px solid #ECECF2;
       border-radius: 8px;
-      padding: 12px 10px;
-      flex: 1;
-      max-width: 170px;
-      position: relative;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-    }
-    .gift-tag {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background: var(--primary);
-      color: var(--white);
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 2px 5px;
-      border-radius: 4px;
-    }
-    .gift-icon {
-      font-size: 1.8rem;
-      margin: 6px 0 4px;
-      display: block;
-    }
-    .gift-text {
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-    .gift-divider {
-      font-size: 1.2rem;
-      font-weight: 900;
-      color: var(--text-light);
-    }
-
-    /* 캠퍼스 Zone */
-    .zone-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    @media (max-width: 600px) {
-      .zone-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .zone-box {
-      background: var(--white);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-    }
-    .zone-tags {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-    .zone-badge-main {
-      background: #eff6ff;
-      color: var(--primary);
-      font-size: 0.72rem;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 4px;
-    }
-    .zone-badge-sub {
-      background: #f1f3f5;
-      color: var(--text-sub);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 4px;
-    }
-    .zone-box-title {
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-    .zone-box-desc {
-      font-size: 0.86rem;
-      color: var(--text-sub);
-      line-height: 1.45;
-    }
-
-    /* 전국 순회 일정 */
-    .tour-wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .tour-card {
-      display: flex;
-      align-items: center;
-      background: var(--white);
-      border-radius: 10px;
-      padding: 14px 18px;
-      border: 1px solid var(--border);
-    }
-    .tour-card.active {
-      border-color: var(--primary);
-      background: #fcfdff;
-    }
-    .tour-num {
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--primary);
-      width: 55px;
-      flex-shrink: 0;
-    }
-    .tour-date {
-      font-size: 0.9rem;
-      font-weight: 700;
-      width: 95px;
-      flex-shrink: 0;
-    }
-    .tour-title {
-      font-size: 0.96rem;
-      font-weight: 700;
-      flex: 1;
-    }
-    .tour-state {
+      padding: 8px 10px;
       font-size: 0.78rem;
       font-weight: 700;
-      padding: 3px 8px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .gift-pill .pill-tag {
+      font-size: 0.65rem;
+      background: var(--primary-blue);
+      color: #ffffff;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    /* 코칭 클래스 내부 사전 참석 예약 버튼 */
+    .reserve-btn {
+      display: block;
+      width: 100%;
+      background: var(--primary-blue);
+      color: #ffffff;
+      text-align: center;
+      padding: 15px;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      box-shadow: 0 6px 18px rgba(27, 22, 200, 0.22);
+    }
+
+    /* PROGRAM 02: 캠퍼스 ZONE (2X2 정사각형 그리드) */
+    .zone-2x2-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 44px;
+    }
+    .zone-square-card {
+      width: calc(50% - 6px);
+      background: var(--card-white);
       border-radius: 20px;
-      background: #f1f3f5;
+      padding: 18px 12px;
+      border: 1.5px solid var(--border-color);
+      box-shadow: 0 4px 16px rgba(27, 22, 200, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      height: 165px;
+      box-sizing: border-box;
+    }
+    .zone-icon-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: #FAF8F2;
+      border: 1.5px solid rgba(27, 22, 200, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .zone-title {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--deep-navy);
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+    .zone-sub {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      line-height: 1.35;
+    }
+    .zone-chip {
+      margin-top: 8px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      background: var(--light-blue);
+      color: var(--primary-blue);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* 순회 일정 (가로 슬라이드 스크롤 형태) */
+    .tour-scroll-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+    .scroll-hint {
+      font-size: 0.75rem;
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+    .tour-horizontal-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 14px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin-bottom: 30px;
+    }
+    .tour-horizontal-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .tour-snap-card {
+      flex: 0 0 170px;
+      background: var(--card-white);
+      border-radius: 18px;
+      padding: 16px 14px;
+      border: 1.5px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(27, 22, 200, 0.04);
+    }
+    .tour-snap-card.active {
+      border-color: var(--primary-blue);
+      background: #FAF9FF;
+      box-shadow: 0 6px 18px rgba(27, 22, 200, 0.09);
+    }
+    .snap-stop {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 4px;
+    }
+    .snap-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--deep-navy);
+      margin-bottom: 4px;
+    }
+    .snap-date {
+      font-size: 0.78rem;
       color: var(--text-sub);
     }
-    .tour-card.active .tour-state {
-      background: var(--primary);
-      color: var(--white);
+    .snap-badge {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 4px;
+      background: #EEF2FF;
+      color: var(--primary-blue);
+      width: fit-content;
     }
 
     /* 푸터 */
     footer {
-      background: var(--text-dark);
-      color: var(--text-light);
-      padding: 36px 0;
+      background: var(--deep-navy);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 36px 18px 30px;
       text-align: center;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
     }
-    footer p {
+    .footer-brand {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
       margin-bottom: 4px;
     }
   </style>
 </head>
 <body>
 
-  <!-- 헤더 GNB -->
-  <header class="gnb">
-    <div class="gnb-inner">
-      <a href="#" class="gnb-logo">
-        <span class="gnb-logo-top">SK telecom</span>
-        <span class="gnb-logo-bottom">찾아가는 캠퍼스</span>
+  <!-- 최상단 스트라이프 -->
+  <div class="awning-stripe"></div>
+
+  <!-- 담백한 언더라인 헤더 (GNB) -->
+  <header class="mobile-header-final">
+    <div class="header-logo-row">
+      <a href="#" class="brand-logo">
+        <span class="brand-top">SK telecom</span>
+        <span class="brand-bottom">찾아가는 캠퍼스</span>
       </a>
-      <ul class="gnb-menu">
-        <li><a href="#sec-summary">일정안내</a></li>
-        <li><a href="#sec-coaching">코칭 클래스</a></li>
-        <li><a href="#sec-campus">캠퍼스 Zone</a></li>
-        <li><a href="#sec-tour">순회일정</a></li>
-      </ul>
     </div>
+    <nav class="tab-nav">
+      <a href="#section-about" class="tab-btn active" data-target="section-about">About</a>
+      <a href="#section-coaching" class="tab-btn" data-target="section-coaching">코칭 클래스</a>
+      <a href="#section-zone" class="tab-btn" data-target="section-zone">캠퍼스 Zone</a>
+      <a href="#section-tour" class="tab-btn" data-target="section-tour">순회 일정</a>
+    </nav>
   </header>
 
-  <!-- 히어로 섹션 -->
-  <section class="hero">
-    <div class="wrap">
-      <span class="hero-badge">2026 충남대학교</span>
-      <h1 class="hero-title">SK텔레콤 찾아가는 캠퍼스</h1>
-      <p class="hero-sub">진로 상담부터 특별한 캠퍼스 경험까지 충남대학교에서 함께합니다!</p>
-      <p class="hero-desc">멘토링 연계 코칭 클래스와 일상에 유용한 캠퍼스 Zone 혜택이 충남대학교 학우 여러분을 직접 찾아왔습니다.</p>
-      <a href="#sec-coaching" class="hero-btn">코칭 클래스 신청하기</a>
+  <!-- HERO SECTION (About) -->
+  <section class="mobile-hero scroll-target" id="section-about">
+    <div class="hero-period">2026. 09. 30(수) 충남대학교</div>
+    <br />
+    <div class="hero-box">
+      <h1>SK텔레콤 찾아가는 캠퍼스</h1>
     </div>
+    <div class="hero-sub">진로 상담부터 특별한 캠퍼스 경험까지<br />충남대학교에서 함께합니다!</div>
+    <p class="hero-desc">
+      멘토링 연계 코칭 클래스와 일상에 유용한 캠퍼스 Zone 혜택이<br />
+      충남대학교 학우 여러분을 직접 찾아왔습니다.
+    </p>
+    <div class="hero-curve"></div>
   </section>
 
-  <!-- SUMMARY 운영 안내 -->
-  <section id="sec-summary" class="section-pad">
-    <div class="wrap">
-      <div class="sec-header">
-        <span class="sec-tag">SUMMARY</span>
-        <h2 class="sec-title">충남대학교 운영 안내</h2>
-        <p class="sec-sub">충남대학교 캠퍼스에서 진행되는 상세 일정입니다.</p>
-      </div>
+  <div class="container">
 
-      <div class="summary-card">
-        <div class="summary-row">
-          <span class="summary-label">일시</span>
-          <span class="summary-val">2026. 9. 30(수) 10:00 – 17:00 (코칭 클래스 14:00 – 16:00)</span>
-        </div>
-        <div class="summary-row">
-          <span class="summary-label">장소</span>
-          <span class="summary-val">코칭 클래스(TBD) / 캠퍼스 Zone(TBD)</span>
-        </div>
-        <div class="summary-row">
-          <span class="summary-label">대상</span>
-          <span class="summary-val">충남대학교 재학생 및 휴학생 누구나 (타 통신사 이용 학우 포함)</span>
-        </div>
-      </div>
+    <!-- 충남대학교 상세 운영 안내 -->
+    <div class="sec-header">
+      <span class="sec-tag">SUMMARY</span>
+      <h2 class="sec-title">충남대학교 운영 안내</h2>
+      <p class="sec-sub">충남대학교 캠퍼스에서 진행되는 상세 일정입니다.</p>
     </div>
-  </section>
 
-  <!-- PROGRAM 01: 코칭 클래스 -->
-  <section id="sec-coaching" class="section-pad" style="background: #f1f3f7;">
-    <div class="wrap">
-      <div class="sec-header">
-        <span class="sec-tag">PROGRAM 01</span>
-        <h2 class="sec-title">코칭 클래스</h2>
-        <p class="sec-sub">SK아카데미 코칭위원이 전하는 실전 성장 노하우</p>
+    <div class="cnu-schedule-card">
+      <div class="cnu-header">
+        <div class="cnu-title-area">
+          <h3>충남대학교</h3>
+          <p>전국 투어 1회차 캠퍼스</p>
+        </div>
       </div>
-
-      <div class="coaching-card">
-        <span class="coaching-badge">멘토링 &amp; 세미나</span>
-        <h3 class="coaching-title">SK아카데미 코칭위원과 함께하는<br />코칭 클래스 ‘열린 상담실’</h3>
-        <p class="coaching-desc">
-          학업, 진로, 취업 준비 과정에서 마주하는 고민을 나누고 코칭 위원들이 현업에서 깨달은 인사이트를 얻어 가세요.
-        </p>
-
-        <!-- 강사진 카드 (사진 반영) -->
-        <div class="coach-list">
-          <div class="coach-box">
-            <div class="coach-head">
-              <div class="coach-avatar">
-                <img src="허근만.png" alt="허근만 코칭 위원" />
-              </div>
-              <div>
-                <div class="coach-meta-role">SK아카데미 코칭 위원</div>
-                <div class="coach-meta-name">허근만</div>
-              </div>
-            </div>
-            <ul class="coach-history">
-              <li>SKT (본사, 수도권, 서부본부 본부장) 역임</li>
-              <li>SK ons 대표 역임</li>
-            </ul>
-          </div>
-
-          <div class="coach-box">
-            <div class="coach-head">
-              <div class="coach-avatar">
-                <img src="이원희.png" alt="이원희 SK SE컨설턴트" />
-              </div>
-              <div>
-                <div class="coach-meta-role">SK SE컨설턴트</div>
-                <div class="coach-meta-name">이원희</div>
-              </div>
-            </div>
-            <ul class="coach-history">
-              <li>SK네트웍스, SK매직, 엔코아 전략 담당 역임</li>
-            </ul>
-          </div>
+      <div class="cnu-info-rows">
+        <div class="cnu-row">
+          <span class="cnu-label">일시</span>
+          <span class="cnu-val"><strong>2026년 9월 30(수)</strong></span>
         </div>
-
-        <!-- 타임테이블 -->
-        <div class="program-table-wrap">
-          <table class="program-table">
-            <thead>
-              <tr>
-                <th class="time-col">TIME</th>
-                <th>PROGRAM</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="time-col">13:50 – 14:00</td>
-                <td><strong>등록 및 입장</strong></td>
-              </tr>
-              <tr>
-                <td class="time-col">14:00 – 14:05</td>
-                <td><strong>오프닝 &amp; 일정 소개</strong></td>
-              </tr>
-              <tr>
-                <td class="time-col">14:05 – 14:55</td>
-                <td>
-                  <div class="prog-title">세미나 1. 나의 성장 이야기</div>
-                  <div class="prog-speaker">허근만 코칭 위원 · SKT 본부장, SK ons 대표 역임</div>
-                </td>
-              </tr>
-              <tr>
-                <td class="time-col">15:00 – 15:50</td>
-                <td>
-                  <div class="prog-title">세미나 2. AI시대에서 우리에게 필요한 것은?</div>
-                  <div class="prog-speaker">이원희 SK SE컨설턴트 · SK네트웍스, SK매직, 엔코아 전략 담당 역임</div>
-                </td>
-              </tr>
-              <tr>
-                <td class="time-col">15:50 – 16:00</td>
-                <td><strong>클로징 &amp; 선물 증정</strong></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="cnu-row">
+          <span class="cnu-label">운영 시간</span>
+          <span class="cnu-val"><strong>10:00 ~ 17:00</strong> (캠퍼스 Zone 상시 운영)</span>
         </div>
-
-        <!-- 웰컴 기프트 배너 -->
-        <div class="gift-wrap">
-          <h4 class="gift-title">참가자 전원에게 <span>Welcome Gift</span> 제공</h4>
-          <div class="gift-flex">
-            <div class="gift-item">
-              <span class="gift-tag">Gift 1</span>
-              <span class="gift-icon">🔋</span>
-              <div class="gift-text">보조배터리 5000mAh</div>
-            </div>
-            <div class="gift-divider">+</div>
-            <div class="gift-item">
-              <span class="gift-tag">Gift 2</span>
-              <span class="gift-icon">🔌</span>
-              <div class="gift-text">25W 고속충전기</div>
-            </div>
-          </div>
+        <div class="cnu-row">
+          <span class="cnu-label">코칭 시간</span>
+          <span class="cnu-val"><strong>14:00 ~ 16:00</strong> (13:50부터 등록 입장)</span>
+        </div>
+        <div class="cnu-row">
+          <span class="cnu-label">장소</span>
+          <span class="cnu-val">코칭 클래스(TBD) / 캠퍼스 Zone(TBD)</span>
+        </div>
+        <div class="cnu-row">
+          <span class="cnu-label">참여 대상</span>
+          <span class="cnu-val">충남대학교 재학생 및 휴학생 누구나</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- PROGRAM 02: 캠퍼스 Zone -->
-  <section id="sec-campus" class="section-pad">
-    <div class="wrap">
-      <div class="sec-header">
-        <span class="sec-tag">PROGRAM 02</span>
-        <h2 class="sec-title">캠퍼스 Zone</h2>
-        <p class="sec-sub">일상에 유용한 혜택과 즐길 거리가 가득한 캠퍼스 이벤트 공간</p>
+    <!-- PROGRAM 01: 코칭 클래스 -->
+    <div class="sec-header scroll-target" id="section-coaching">
+      <span class="sec-tag">PROGRAM 01</span>
+      <h2 class="sec-title">코칭 클래스</h2>
+      <p class="sec-sub">SK아카데미 코칭위원이 전하는 실전 성장 노하우</p>
+    </div>
+
+    <div class="coaching-card">
+      <span class="coaching-badge">멘토링 & 세미나</span>
+      <h3 class="coaching-main-title">SK아카데미 코칭위원과 함께하는<br />코칭 클래스 ‘열린 상담실’</h3>
+      <p class="coaching-lead-text">
+        학업, 진로, 취업 준비 과정에서 마주하는 고민을 나누고 코칭 위원들이 현업에서 깨달은 인사이트를 얻어 가세요.
+      </p>
+
+      <!-- 강사 2인 프로필 (사진 삽입 및 '역임' 표기) -->
+      <div class="speakers-wrap">
+        <div class="speaker-card">
+          <div class="speaker-avatar">
+            <img src="허근만.png" alt="허근만 코칭 위원" />
+          </div>
+          <div class="speaker-info">
+            <h4>허근만 <span>SK아카데미 코칭 위원</span></h4>
+            <p>SK텔레콤 (본사, 수도권, 서부본부 본부장) 역임<br />SK ons 대표 역임</p>
+          </div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-avatar">
+            <img src="이원희.png" alt="이원희 SK SE컨설턴트" />
+          </div>
+          <div class="speaker-info">
+            <h4>이원희 <span>SK SE컨설턴트</span></h4>
+            <p>SK네트웍스, SK매직, 엔코아 전략 담당 역임</p>
+          </div>
+        </div>
       </div>
 
-      <div class="zone-grid">
-        <!-- 1: 커피 트럭 -->
-        <div class="zone-box">
-          <div class="zone-tags">
-            <span class="zone-badge-main">100% 증정</span>
-            <span class="zone-badge-sub">찾아가는 카페</span>
-          </div>
-          <h4 class="zone-box-title">무료 커피 트럭</h4>
-          <p class="zone-box-desc">간단한 현장 설문조사에 참여하시면 시원한 무료 음료를 즉시 제공해 드립니다.</p>
+      <!-- 타임테이블 -->
+      <div class="timetable-box">
+        <div class="timetable-header">
+          <span>진행 시간</span>
+          <span>프로그램 및 세미나 내용</span>
         </div>
+        <div class="timetable-row">
+          <div class="tt-time">13:50 ~ 14:00</div>
+          <div class="tt-desc">
+            <strong>등록 및 입장</strong>
+            <span>참석자 확인 및 안내</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="tt-time">14:00 ~ 14:05</div>
+          <div class="tt-desc">
+            <strong>오프닝 & 일정 소개</strong>
+            <span>코칭 클래스 진행 안내</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="tt-time">14:05 ~ 14:55</div>
+          <div class="tt-desc">
+            <strong>세미나 1. 나의 성장 이야기</strong>
+            <span>허근만 코칭 위원 · SKT 본부장, SK ons 대표 역임</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="tt-time">15:00 ~ 15:50</div>
+          <div class="tt-desc">
+            <strong>세미나 2. AI시대에서 우리에게 필요한 것은?</strong>
+            <span>이원희 SK SE컨설턴트 · SK네트웍스, SK매직, 엔코아 전략 담당 역임</span>
+          </div>
+        </div>
+        <div class="timetable-row">
+          <div class="tt-time">15:50 ~ 16:00</div>
+          <div class="tt-desc">
+            <strong>클로징 & 선물 증정</strong>
+            <span>참가자 Welcome Gift 증정</span>
+          </div>
+        </div>
+      </div>
 
-        <!-- 2: 너프건 -->
-        <div class="zone-box">
-          <div class="zone-tags">
-            <span class="zone-badge-main">보조배터리 외</span>
-            <span class="zone-badge-sub">경품 게임</span>
+      <!-- 참가자 전원 Welcome Gift 배너 -->
+      <div class="gift-box-wrap">
+        <div class="gift-box-title">참가자 전원에게 <span>Welcome Gift</span> 제공</div>
+        <div class="gift-box-items">
+          <div class="gift-pill">
+            <span class="pill-tag">Gift 1</span>
+            <span>🔋 보조배터리 5000mAh</span>
           </div>
-          <h4 class="zone-box-title">너프건 사격 이벤트</h4>
-          <p class="zone-box-desc">과녁을 맞춰 점수를 획득하고 보조배터리 등 다양한 일상 필수 경품을 받아 가세요.</p>
+          <span style="font-weight: 800; color: #8b95a1;">+</span>
+          <div class="gift-pill">
+            <span class="pill-tag">Gift 2</span>
+            <span>🔌 25W 고속충전기</span>
+          </div>
         </div>
+      </div>
 
-        <!-- 3: 단말 케어 -->
-        <div class="zone-box">
-          <div class="zone-tags">
-            <span class="zone-badge-main">무료 케어</span>
-            <span class="zone-badge-sub">이동형 A/S 버스</span>
-          </div>
-          <h4 class="zone-box-title">단말 케어 &amp; 필름 교체</h4>
-          <p class="zone-box-desc">전문 장비를 갖춘 버스에서 기기 점검, 스마트폰 클리닝 및 액정 보호필름 무료 교체 서비스를 제공합니다.</p>
-        </div>
+      <!-- 본문 내 사전 참석 예약 버튼 유지 -->
+      <a href="javascript:alert('코칭 클래스 사전 참석 예약 페이지로 이동합니다 (선착순 접수)');" class="reserve-btn">
+        코칭 클래스 사전 참석 예약하기 ➔
+      </a>
+    </div>
 
-        <!-- 4: SKT 서비스 -->
-        <div class="zone-box">
-          <div class="zone-tags">
-            <span class="zone-badge-main">SKT 서비스</span>
-            <span class="zone-badge-sub">알찬 정보 제공</span>
-          </div>
-          <h4 class="zone-box-title">아이폰 18 구매 혜택 &amp; 우리가족 T생활</h4>
-          <p class="zone-box-desc">• 아이폰 18 구매 혜택 확인<br />• 우리가족 T생활 &lt;숏티&gt; 안내 영상 시청 및 유용한 모바일 혜택 체험</p>
+    <!-- PROGRAM 02: 캠퍼스 Zone (2X2 정사각형 그리드 원형 유지) -->
+    <div class="sec-header scroll-target" id="section-zone">
+      <span class="sec-tag">PROGRAM 02</span>
+      <h2 class="sec-title">캠퍼스 Zone</h2>
+      <p class="sec-sub">캠퍼스 광장에서 만나는 4가지 현장 혜택과 즐길 거리</p>
+    </div>
+
+    <div class="zone-2x2-grid">
+      <!-- Item 1: 무료 커피 트럭 -->
+      <div class="zone-square-card">
+        <div class="zone-icon-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
         </div>
+        <h4 class="zone-title">무료 커피 트럭</h4>
+        <p class="zone-sub">설문 참여 시<br />100% 증정</p>
+        <span class="zone-chip">찾아가는 카페</span>
+      </div>
+
+      <!-- Item 2: 너프건 이벤트 -->
+      <div class="zone-square-card">
+        <div class="zone-icon-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="2"></circle></svg>
+        </div>
+        <h4 class="zone-title">너프건 사격 이벤트</h4>
+        <p class="zone-sub">사격 점수에 따라<br />푸짐한 경품 증정</p>
+        <span class="zone-chip">보조배터리 외</span>
+      </div>
+
+      <!-- Item 3: 무료 필름 교체 -->
+      <div class="zone-square-card">
+        <div class="zone-icon-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+        </div>
+        <h4 class="zone-title">단말 케어 & 필름 교체</h4>
+        <p class="zone-sub">스마트폰 점검 및<br />액정 보호필름 무상</p>
+        <span class="zone-chip">이동형 A/S 버스</span>
+      </div>
+
+      <!-- Item 4: SKT 서비스 -->
+      <div class="zone-square-card">
+        <div class="zone-icon-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <h4 class="zone-title">아이폰 18 & T생활</h4>
+        <p class="zone-sub">구매 혜택 확인 &<br />우리가족 T생활 &lt;숏티&gt;</p>
+        <span class="zone-chip">알찬 정보 제공</span>
       </div>
     </div>
-  </section>
 
-  <!-- CAMPUS TOUR: 전국 7개 학교 순회 일정 -->
-  <section id="sec-tour" class="section-pad" style="background: #f1f3f7;">
-    <div class="wrap">
-      <div class="sec-header">
+    <!-- 순회 일정 (가로 슬라이드 스크롤 형태 원형 유지) -->
+    <div class="tour-scroll-header scroll-target" id="section-tour">
+      <div>
         <span class="sec-tag">CAMPUS TOUR</span>
         <h2 class="sec-title">전국 7개 학교 순회 일정</h2>
-        <p class="sec-sub">SK텔레콤 ‘찾아가는 캠퍼스’가 전국의 청년 여러분을 찾아갑니다.</p>
       </div>
+      <span class="scroll-hint">옆으로 넘겨보기 ➔</span>
+    </div>
 
-      <div class="tour-wrap">
-        <div class="tour-card active">
-          <div class="tour-num">1회차</div>
-          <div class="tour-date">9. 30(수)</div>
-          <div class="tour-title">충남대학교</div>
-          <div class="tour-state">진행 예정</div>
+    <div class="tour-horizontal-scroll">
+      <!-- 1회차: 충남대학교 -->
+      <div class="tour-snap-card active">
+        <div>
+          <div class="snap-stop">1회차</div>
+          <div class="snap-name">충남대학교</div>
+          <div class="snap-date">9월 30일 (수)</div>
         </div>
-        <div class="tour-card">
-          <div class="tour-num">2회차</div>
-          <div class="tour-date">10. 7(수)</div>
-          <div class="tour-title">충북대학교</div>
-          <div class="tour-state">일정 확정</div>
+        <span class="snap-badge">진행 예정</span>
+      </div>
+      <!-- 2회차: 충북대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-stop">2회차</div>
+          <div class="snap-name">충북대학교</div>
+          <div class="snap-date">10월 7일 (수)</div>
         </div>
-        <div class="tour-card">
-          <div class="tour-num">3회차</div>
-          <div class="tour-date">10. 14(수)</div>
-          <div class="tour-title">대구대학교</div>
-          <div class="tour-state">일정 확정</div>
+        <span class="snap-badge">일정 확정</span>
+      </div>
+      <!-- 3회차: 대구대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-stop">3회차</div>
+          <div class="snap-name">대구대학교</div>
+          <div class="snap-date">10월 14일 (수)</div>
         </div>
-        <div class="tour-card">
-          <div class="tour-num">4회차</div>
-          <div class="tour-date">10. 26(월)</div>
-          <div class="tour-title">육군부사관학교</div>
-          <div class="tour-state">일정 확정</div>
+        <span class="snap-badge">일정 확정</span>
+      </div>
+      <!-- 4회차: 육군부사관학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-stop">4회차</div>
+          <div class="snap-name">육군부사관학교</div>
+          <div class="snap-date">10월 26일 (월)</div>
         </div>
-        <div class="tour-card">
-          <div class="tour-num">5회차</div>
-          <div class="tour-date">10. 28(수)</div>
-          <div class="tour-title">전남대학교</div>
-          <div class="tour-state">일정 확정</div>
+        <span class="snap-badge">일정 확정</span>
+      </div>
+      <!-- 5회차: 전남대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-stop">5회차</div>
+          <div class="snap-name">전남대학교</div>
+          <div class="snap-date">10월 28일 (수)</div>
         </div>
-        <div class="tour-card">
-          <div class="tour-num">6회차</div>
-          <div class="tour-date">11. 2(월)</div>
-          <div class="tour-title">서울시립대학교</div>
-          <div class="tour-state">일정 확정</div>
+        <span class="snap-badge">일정 확정</span>
+      </div>
+      <!-- 6회차: 서울시립대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-stop">6회차</div>
+          <div class="snap-name">서울시립대학교</div>
+          <div class="snap-date">11월 2일 (월)</div>
         </div>
-        <div class="tour-card">
-          <div class="tour-num">7회차</div>
-          <div class="tour-date">11. 4(수)</div>
-          <div class="tour-title">부산대학교</div>
-          <div class="tour-state">일정 확정</div>
+        <span class="snap-badge">일정 확정</span>
+      </div>
+      <!-- 7회차: 부산대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-stop">7회차</div>
+          <div class="snap-name">부산대학교</div>
+          <div class="snap-date">11월 4일 (수)</div>
         </div>
+        <span class="snap-badge">일정 확정</span>
       </div>
     </div>
-  </section>
 
-  <!-- 푸터 -->
+  </div>
+
+  <!-- 푸터: 연락처 없이 간결한 저작권 표기만 유지 -->
   <footer>
-    <div class="wrap">
-      <p><strong>SK텔레콤 찾아가는 캠퍼스 운영사무국</strong></p>
-      <p>본 행사는 대학생 청년 세대의 성장을 지원하기 위해 SK텔레콤에서 주최·운영합니다.</p>
-      <p style="margin-top: 8px; color: #6b7684;">© SK Telecom Co., Ltd. All Rights Reserved.</p>
-    </div>
+    <div class="footer-brand">SK telecom × 충남대학교</div>
+    <p style="opacity: 0.5;">© 2026 SK Telecom Co., Ltd. All Rights Reserved.</p>
   </footer>
+
+  <!-- 탭 클릭 및 스크롤 시 언더라인 바 실시간 전환 스크립트 -->
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('.scroll-target');
+
+    // 1. 탭 클릭 시 밑줄 즉시 이동
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // 2. 스크롤 이동 시 현재 보이는 섹션에 맞춰 탭 밑줄 자동 동기화
+    const observerOptions = {
+      root: null,
+      rootMargin: '-25% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          tabs.forEach(tab => {
+            if (tab.getAttribute('data-target') === id) {
+              tabs.forEach(t => t.classList.remove('active'));
+              tab.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
 
 </body>
 </html>
