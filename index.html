@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>SK텔레콤 찾아가는 캠퍼스 × 충남대학교</title>
+  <title>SK 텔레콤 찾아가는 캠퍼스 × 충남대학교</title>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -63,10 +63,11 @@
       text-decoration: none;
     }
     .brand-logo .brand-top {
-      font-size: 0.72rem;
+      font-size: 0.76rem;
       font-weight: 800;
-      color: #ea002c;
+      color: var(--primary-blue); /* 찾아가는 캠퍼스와 동일한 블루 적용 */
       line-height: 1.1;
+      letter-spacing: -0.2px;
     }
     .brand-logo .brand-bottom {
       font-size: 1.15rem;
@@ -138,7 +139,7 @@
       max-width: 340px;
     }
     .hero-box h1 {
-      font-size: 1.9rem;
+      font-size: 1.85rem;
       font-weight: 900;
       letter-spacing: -1px;
       line-height: 1.25;
@@ -199,7 +200,7 @@
       margin-top: 4px;
     }
 
-    /* 충남대 첫날 전용 상세 일정 카드 (About 바로 아래) */
+    /* 충남대 상세 일정 카드 */
     .cnu-schedule-card {
       background: var(--card-white);
       border: 2px solid var(--primary-blue);
@@ -224,14 +225,6 @@
     .cnu-title-area p {
       font-size: 0.8rem;
       color: var(--text-sub);
-    }
-    .cnu-kickoff-badge {
-      font-size: 0.72rem;
-      font-weight: 800;
-      background: var(--primary-blue);
-      color: #ffffff;
-      padding: 4px 10px;
-      border-radius: 999px;
     }
     .cnu-info-rows {
       display: flex;
@@ -315,8 +308,8 @@
       gap: 14px;
     }
     .speaker-avatar {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: var(--primary-blue);
       color: #ffffff;
@@ -327,8 +320,9 @@
       font-weight: 900;
       flex-shrink: 0;
       overflow: hidden;
-      border: 1.5px solid #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
     }
     .speaker-avatar img {
       width: 100%;
@@ -408,7 +402,7 @@
       color: #6b7684;
     }
 
-    /* 웰컴 기프트 배너 (신규 추가 요소도 기존 카드 무드에 통합) */
+    /* 웰컴 기프트 배너 */
     .gift-box-wrap {
       background: #FAF9FF;
       border: 1px dashed rgba(27, 22, 200, 0.25);
@@ -442,7 +436,7 @@
       color: var(--text-main);
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
     }
     .gift-pill .pill-tag {
       font-size: 0.65rem;
@@ -478,7 +472,7 @@
       width: calc(50% - 6px);
       background: var(--card-white);
       border-radius: 20px;
-      padding: 18px 12px;
+      padding: 16px 10px;
       border: 1.5px solid var(--border-color);
       box-shadow: 0 4px 16px rgba(27, 22, 200, 0.04);
       display: flex;
@@ -490,25 +484,25 @@
       box-sizing: border-box;
     }
     .zone-icon-circle {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       background: #FAF8F2;
       border: 1.5px solid rgba(27, 22, 200, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .zone-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 900;
       color: var(--deep-navy);
       margin-bottom: 4px;
       line-height: 1.25;
     }
     .zone-sub {
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--text-sub);
       line-height: 1.35;
     }
@@ -522,7 +516,7 @@
       border-radius: 4px;
     }
 
-    /* 순회 일정 (가로 슬라이드 스크롤 형태) */
+    /* 순회 일정 */
     .tour-scroll-header {
       display: flex;
       justify-content: space-between;
@@ -632,11 +626,11 @@
     <div class="hero-period">2026. 09. 30(수) 충남대학교</div>
     <br />
     <div class="hero-box">
-      <h1>SK텔레콤 찾아가는 캠퍼스</h1>
+      <h1>SK 텔레콤 찾아가는 캠퍼스</h1>
     </div>
     <div class="hero-sub">진로 상담부터 특별한 캠퍼스 경험까지<br />충남대학교에서 함께합니다!</div>
     <p class="hero-desc">
-      멘토링 연계 코칭 클래스와 일상에 유용한 캠퍼스 Zone 혜택이<br />
+      코칭 클래스와 일상에 유용한 캠퍼스 Zone 혜택이<br />
       충남대학교 학우 여러분을 직접 찾아왔습니다.
     </p>
     <div class="hero-curve"></div>
@@ -673,7 +667,7 @@
         </div>
         <div class="cnu-row">
           <span class="cnu-label">장소</span>
-          <span class="cnu-val">코칭 클래스(TBD) / 캠퍼스 Zone(TBD)</span>
+          <span class="cnu-val">코칭 클래스(인문대학 W7동 137호) / 캠퍼스 Zone(TBD)</span>
         </div>
         <div class="cnu-row">
           <span class="cnu-label">참여 대상</span>
@@ -686,35 +680,35 @@
     <div class="sec-header scroll-target" id="section-coaching">
       <span class="sec-tag">PROGRAM 01</span>
       <h2 class="sec-title">코칭 클래스</h2>
-      <p class="sec-sub">SK아카데미 코칭위원이 전하는 실전 성장 노하우</p>
+      <p class="sec-sub">SK 아카데미 코칭 위원이 전하는 실전 성장 노하우</p>
     </div>
 
     <div class="coaching-card">
       <span class="coaching-badge">멘토링 & 세미나</span>
-      <h3 class="coaching-main-title">SK아카데미 코칭위원과 함께하는<br />코칭 클래스 ‘열린 상담실’</h3>
+      <h3 class="coaching-main-title">SK 아카데미 코칭 위원과 함께하는<br />코칭 클래스 ‘열린 상담실’</h3>
       <p class="coaching-lead-text">
         학업, 진로, 취업 준비 과정에서 마주하는 고민을 나누고 코칭 위원들이 현업에서 깨달은 인사이트를 얻어 가세요.
       </p>
 
-      <!-- 강사 2인 프로필 (사진 삽입 및 '역임' 표기) -->
+      <!-- 강사 2인 프로필 (사진 로드 실패 시 글자 아바타 자동 표시 백업 적용) -->
       <div class="speakers-wrap">
         <div class="speaker-card">
           <div class="speaker-avatar">
-            <img src="허근만.png" alt="허근만 코칭 위원" />
+            <img src="허근만.png" alt="허근만 코칭 위원" onerror="this.style.display='none'; this.parentNode.textContent='허';" />
           </div>
           <div class="speaker-info">
-            <h4>허근만 <span>SK아카데미 코칭 위원</span></h4>
-            <p>SK텔레콤 (본사, 수도권, 서부본부 본부장) 역임<br />SK ons 대표 역임</p>
+            <h4>허근만 <span>SK 아카데미 코칭 위원</span></h4>
+            <p>SK 텔레콤 본부장 역임<br />SK ons 대표 역임</p>
           </div>
         </div>
 
         <div class="speaker-card">
           <div class="speaker-avatar">
-            <img src="이원희.png" alt="이원희 SK SE컨설턴트" />
+            <img src="이원희.png" alt="이원희 SK SE컨설턴트" onerror="this.style.display='none'; this.parentNode.textContent='이';" />
           </div>
           <div class="speaker-info">
             <h4>이원희 <span>SK SE컨설턴트</span></h4>
-            <p>SK네트웍스, SK매직, 엔코아 전략 담당 역임</p>
+            <p>SK 네트웍스, SK 매직, 엔코아 전략 담당 역임</p>
           </div>
         </div>
       </div>
@@ -742,15 +736,15 @@
         <div class="timetable-row">
           <div class="tt-time">14:05 ~ 14:55</div>
           <div class="tt-desc">
-            <strong>세미나 1. 나의 성장 이야기</strong>
-            <span>허근만 코칭 위원 · SKT 본부장, SK ons 대표 역임</span>
+            <strong>세미나 1. 신입사원에서 대기업 임원까지 – 나의 성장 이야기</strong>
+            <span>허근만 코칭 위원 · SK 텔레콤 본부장, SK ons 대표 역임</span>
           </div>
         </div>
         <div class="timetable-row">
           <div class="tt-time">15:00 ~ 15:50</div>
           <div class="tt-desc">
             <strong>세미나 2. AI시대에서 우리에게 필요한 것은?</strong>
-            <span>이원희 SK SE컨설턴트 · SK네트웍스, SK매직, 엔코아 전략 담당 역임</span>
+            <span>이원희 SK SE컨설턴트 · SK 네트웍스, SK 매직, 엔코아 전략 담당 역임</span>
           </div>
         </div>
         <div class="timetable-row">
@@ -762,7 +756,7 @@
         </div>
       </div>
 
-      <!-- 참가자 전원 Welcome Gift 배너 -->
+      <!-- 참가자 전원 Welcome Gift 배너 (220V 규격 아이콘 반영) -->
       <div class="gift-box-wrap">
         <div class="gift-box-title">참가자 전원에게 <span>Welcome Gift</span> 제공</div>
         <div class="gift-box-items">
@@ -773,7 +767,13 @@
           <span style="font-weight: 800; color: #8b95a1;">+</span>
           <div class="gift-pill">
             <span class="pill-tag">Gift 2</span>
-            <span>🔌 25W 고속충전기</span>
+            <!-- 220V 2구 콘센트 SVG 아이콘 -->
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="8" cy="12" r="2" fill="#1b16c8"></circle>
+              <circle cx="16" cy="12" r="2" fill="#1b16c8"></circle>
+            </svg>
+            <span>25W 고속충전기</span>
           </div>
         </div>
       </div>
@@ -812,23 +812,23 @@
         <span class="zone-chip">보조배터리 외</span>
       </div>
 
-      <!-- Item 3: 무료 필름 교체 -->
+      <!-- Item 3: 단말 케어 & 필름 교체 ('및' 제거 반영) -->
       <div class="zone-square-card">
         <div class="zone-icon-circle">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
         </div>
         <h4 class="zone-title">단말 케어 & 필름 교체</h4>
-        <p class="zone-sub">스마트폰 점검 및<br />액정 보호필름 무상</p>
+        <p class="zone-sub">스마트폰 점검<br />액정 보호필름 무상</p>
         <span class="zone-chip">이동형 A/S 버스</span>
       </div>
 
-      <!-- Item 4: SKT 서비스 -->
+      <!-- Item 4: SKT 서비스 (타이틀 변경 및 줄바꿈 적용) -->
       <div class="zone-square-card">
         <div class="zone-icon-circle">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
         </div>
-        <h4 class="zone-title">아이폰 18 & T생활</h4>
-        <p class="zone-sub">구매 혜택 확인 &<br />우리가족 T생활 &lt;숏티&gt;</p>
+        <h4 class="zone-title">SKT 서비스</h4>
+        <p class="zone-sub">아이폰 18 구매 혜택<br />우리가족 T생활 &lt;숏티&gt;</p>
         <span class="zone-chip">알찬 정보 제공</span>
       </div>
     </div>
@@ -910,7 +910,7 @@
 
   </div>
 
-  <!-- 푸터: 연락처 없이 간결한 저작권 표기만 유지 -->
+  <!-- 푸터 -->
   <footer>
     <div class="footer-brand">SK telecom × 충남대학교</div>
     <p style="opacity: 0.5;">© 2026 SK Telecom Co., Ltd. All Rights Reserved.</p>
