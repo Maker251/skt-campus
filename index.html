@@ -470,6 +470,10 @@
       font-size: 1rem;
       font-weight: 800;
       box-shadow: 0 6px 18px rgba(27, 22, 200, 0.22);
+      transition: opacity 0.2s;
+    }
+    .reserve-btn:hover {
+      opacity: 0.95;
     }
 
     /* PROGRAM 02: 캠퍼스 ZONE (2X2 정사각형 그리드) */
@@ -664,7 +668,7 @@
         </div>
         <div class="cnu-row">
           <span class="cnu-label">운영 시간</span>
-          <span class="cnu-val"><strong>10:00 ~ 16:00</strong> (캠퍼스 Zone 상시 운영)</span>
+          <span class="cnu-val"><strong>11:00 ~ 17:00</strong> (캠퍼스 Zone 상시 운영)</span>
         </div>
         <div class="cnu-row">
           <span class="cnu-label">코칭 시간</span>
@@ -674,7 +678,7 @@
           <span class="cnu-label">장소</span>
           <span class="cnu-val">
             코칭 클래스(인문대학 W7동 137호)<br />
-            캠퍼스 Zone(축제 메인 행사장)
+            캠퍼스 Zone(인문대학 W7동 옆)
           </span>
         </div>
         <div class="cnu-row">
@@ -786,8 +790,8 @@
         </div>
       </div>
 
-      <!-- 사전 참석 예약 버튼 -->
-      <a href="javascript:alert('코칭 클래스 사전 참석 예약 페이지로 이동합니다 (선착순 접수)');" class="reserve-btn">
+      <!-- 사전 참석 예약 버튼 (구글 폼 링크 연동) -->
+      <a href="https://forms.gle/NPotVZFdjNyKo794A" target="_blank" rel="noopener noreferrer" class="reserve-btn">
         코칭 클래스 사전 참석 예약하기 ➔
       </a>
     </div>
