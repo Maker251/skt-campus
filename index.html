@@ -630,11 +630,11 @@
     .tour-map-wrapper {
       position: relative;
       width: 100%;
-      height: 410px;
-      background: linear-gradient(180deg, #F9FAFD 0%, #FFFFFF 100%);
+      height: 420px;
+      background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(27, 22, 200, 0.06);
+      border: 1px solid rgba(27, 22, 200, 0.08);
     }
     .south-korea-svg {
       width: 100%;
@@ -656,23 +656,38 @@
     .pin-label {
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(4px);
-      border: 1px solid rgba(27, 22, 200, 0.22);
+      border: 1px solid rgba(27, 22, 200, 0.24);
       color: var(--deep-navy);
-      padding: 2px 7px;
+      padding: 3px 8px;
       border-radius: 6px;
       font-size: 0.68rem;
       font-weight: 800;
       white-space: nowrap;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
       margin-bottom: 3px;
     }
     .pin-dot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       background: var(--primary-blue);
       border: 2px solid #ffffff;
       border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(27, 22, 200, 0.4);
+      box-shadow: 0 2px 5px rgba(27, 22, 200, 0.45);
+    }
+    /* 충남대학교 1회차 상자 블루 하이라이트 */
+    .map-pin.active {
+      z-index: 10;
+    }
+    .map-pin.active .pin-label {
+      background: var(--primary-blue);
+      color: #ffffff;
+      border-color: var(--primary-blue);
+      box-shadow: 0 3px 8px rgba(27, 22, 200, 0.35);
+    }
+    .map-pin.active .pin-dot {
+      background: var(--primary-blue);
+      width: 10px;
+      height: 10px;
     }
 
     /* 푸터 */
@@ -995,84 +1010,86 @@
       </div>
     </div>
 
-    <!-- 2. 전국 순회 지도 영역 (대한민국 남한 지도 배경) -->
+    <!-- 2. 전국 순회 지도 영역 (남한 실제 해안선 윤곽 및 대학 날짜 표기) -->
     <div class="tour-map-card">
       <div class="tour-map-header">
         <h4>🗺️ 전국 투어 맵</h4>
         <span>총 7개 거점 순회</span>
       </div>
       <div class="tour-map-wrapper">
-        <!-- 대한민국(남한) 실제 윤곽 및 도서(제주·울릉/독도) 벡터 SVG -->
-        <svg class="south-korea-svg" viewBox="0 0 360 410" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- 남한 본토 지리적 형태 -->
-          <path d="M 85 40 
-                   Q 125 35 175 32 
-                   Q 220 30 255 42
-                   L 260 52 
-                   Q 275 88 288 128 
-                   Q 296 165 305 210
-                   Q 310 240 300 270 
-                   Q 292 295 272 320 
-                   Q 245 342 215 348
-                   Q 185 352 155 340 
-                   Q 125 350 100 328 
-                   Q 80 305 75 270
-                   Q 72 245 88 220 
-                   Q 75 185 68 150 
-                   Q 62 118 70 85 
-                   Q 74 60 85 40 Z" 
-                fill="#ECEBFA" stroke="#D7D8F4" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- 사실적인 대한민국 남한 해안선 및 도서 벡터 SVG -->
+        <svg class="south-korea-svg" viewBox="0 0 360 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 남한 본토 지형선 -->
+          <path d="M 82 28 
+                   C 105 28, 140 25, 175 22 
+                   C 210 20, 245 28, 268 36
+                   C 264 55, 272 82, 282 118 
+                   C 292 152, 298 185, 305 220 
+                   C 310 238, 308 248, 298 260
+                   C 304 270, 296 286, 286 304 
+                   C 274 322, 252 334, 235 338 
+                   C 220 342, 205 336, 192 344
+                   C 180 350, 165 352, 150 342 
+                   C 138 335, 122 346, 108 336
+                   C 95 328, 88 310, 80 295
+                   C 76 285, 84 270, 78 255
+                   C 72 240, 86 225, 88 208
+                   C 90 195, 78 186, 74 172
+                   C 70 156, 56 142, 64 125
+                   C 70 115, 62 98, 66 82
+                   C 70 65, 80 48, 82 28 Z" 
+                fill="#EEF0FA" stroke="#D3D7EE" stroke-width="1.8" stroke-linejoin="round"/>
           
           <!-- 제주도 -->
-          <ellipse cx="105" cy="382" rx="20" ry="11" fill="#ECEBFA" stroke="#D7D8F4" stroke-width="1.5"/>
-          <!-- 울릉도 & 독도 -->
-          <circle cx="325" cy="115" r="4.5" fill="#ECEBFA" stroke="#D7D8F4" stroke-width="1.2"/>
-          <circle cx="342" cy="122" r="2.5" fill="#ECEBFA" stroke="#D7D8F4" stroke-width="1.2"/>
+          <ellipse cx="106" cy="390" rx="22" ry="12" fill="#EEF0FA" stroke="#D3D7EE" stroke-width="1.5"/>
+          <!-- 울릉도 / 독도 -->
+          <circle cx="330" cy="116" r="4.5" fill="#EEF0FA" stroke="#D3D7EE" stroke-width="1.2"/>
+          <circle cx="346" cy="124" r="2.5" fill="#EEF0FA" stroke="#D3D7EE" stroke-width="1.2"/>
           
-          <!-- 투어 거점 연결 안내선 -->
-          <path d="M 132 105 L 175 168 L 140 205 L 122 250 L 115 302 M 140 205 L 245 240 L 268 298" 
+          <!-- 순회 연결선 가이드 -->
+          <path d="M 132 108 L 178 162 L 140 198 L 122 246 L 114 298 M 140 198 L 244 235 L 268 295" 
                 stroke="rgba(27, 22, 200, 0.22)" stroke-width="1.5" stroke-dasharray="3 3"/>
         </svg>
 
         <!-- 6. 서울시립대 (서울) -->
-        <div class="map-pin" style="top: 25%; left: 37%;">
-          <div class="pin-label">6. 서울시립대</div>
+        <div class="map-pin" style="top: 26%; left: 37%;">
+          <div class="pin-label">6. 서울시립대(11.2)</div>
           <div class="pin-dot"></div>
         </div>
 
         <!-- 2. 충북대 (청주) -->
-        <div class="map-pin" style="top: 41%; left: 49%;">
-          <div class="pin-label">2. 충북대</div>
+        <div class="map-pin" style="top: 39%; left: 49%;">
+          <div class="pin-label">2. 충북대(10.7)</div>
           <div class="pin-dot"></div>
         </div>
 
-        <!-- 1. 충남대 (대전) -->
-        <div class="map-pin" style="top: 50%; left: 39%;">
+        <!-- 1. 충남대 (대전 - 1회차 블루 상자 하이라이트) -->
+        <div class="map-pin active" style="top: 48%; left: 39%;">
           <div class="pin-label">1. 충남대(9.30)</div>
           <div class="pin-dot"></div>
         </div>
 
         <!-- 4. 육군부사관학교 (익산) -->
-        <div class="map-pin" style="top: 61%; left: 34%;">
-          <div class="pin-label">4. 육군부사관학교</div>
+        <div class="map-pin" style="top: 59%; left: 34%;">
+          <div class="pin-label">4. 육군부사관학교(10.26)</div>
           <div class="pin-dot"></div>
         </div>
 
         <!-- 3. 대구대 (경산/대구) -->
-        <div class="map-pin" style="top: 58%; left: 68%;">
-          <div class="pin-label">3. 대구대</div>
+        <div class="map-pin" style="top: 56%; left: 68%;">
+          <div class="pin-label">3. 대구대(10.14)</div>
           <div class="pin-dot"></div>
         </div>
 
         <!-- 5. 전남대 (광주) -->
-        <div class="map-pin" style="top: 74%; left: 32%;">
-          <div class="pin-label">5. 전남대</div>
+        <div class="map-pin" style="top: 71%; left: 32%;">
+          <div class="pin-label">5. 전남대(10.28)</div>
           <div class="pin-dot"></div>
         </div>
 
         <!-- 7. 부산대 (부산) -->
-        <div class="map-pin" style="top: 73%; left: 74%;">
-          <div class="pin-label">7. 부산대</div>
+        <div class="map-pin" style="top: 71%; left: 74%;">
+          <div class="pin-label">7. 부산대(11.4)</div>
           <div class="pin-dot"></div>
         </div>
       </div>
