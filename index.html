@@ -449,6 +449,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      text-align: left;
     }
     .gift-pill .pill-tag {
       font-size: 0.65rem;
@@ -456,6 +457,8 @@
       color: #ffffff;
       padding: 1px 4px;
       border-radius: 3px;
+      align-self: flex-start;
+      margin-top: 2px;
     }
 
     /* 코칭 클래스 내부 사전 참석 예약 버튼 */
@@ -476,7 +479,7 @@
       opacity: 0.95;
     }
 
-    /* PROGRAM 02: 캠퍼스 ZONE (2X2 정사각형 그리드) */
+    /* PROGRAM 02: 캠퍼스 존 (2X2 정사각형 그리드) */
     .zone-2x2-grid {
       display: flex;
       flex-wrap: wrap;
@@ -626,7 +629,7 @@
     <nav class="tab-nav">
       <a href="#section-about" class="tab-btn active" data-target="section-about">About</a>
       <a href="#section-coaching" class="tab-btn" data-target="section-coaching">코칭 클래스</a>
-      <a href="#section-zone" class="tab-btn" data-target="section-zone">캠퍼스 Zone</a>
+      <a href="#section-zone" class="tab-btn" data-target="section-zone">캠퍼스 존</a>
       <a href="#section-tour" class="tab-btn" data-target="section-tour">순회 일정</a>
     </nav>
   </header>
@@ -668,7 +671,7 @@
         </div>
         <div class="cnu-row">
           <span class="cnu-label">운영 시간</span>
-          <span class="cnu-val"><strong>11:00 ~ 17:00</strong> (캠퍼스 Zone 상시 운영)</span>
+          <span class="cnu-val"><strong>11:00 ~ 17:00</strong> (캠퍼스 존 상시 운영)</span>
         </div>
         <div class="cnu-row">
           <span class="cnu-label">코칭 시간</span>
@@ -678,7 +681,7 @@
           <span class="cnu-label">장소</span>
           <span class="cnu-val">
             코칭 클래스(인문대학 W7동 137호)<br />
-            캠퍼스 Zone(인문대학 W7동 옆)
+            캠퍼스 존(인문대학 W7동 옆)
           </span>
         </div>
         <div class="cnu-row">
@@ -779,13 +782,13 @@
           <span style="font-weight: 800; color: #8b95a1;">+</span>
           <div class="gift-pill">
             <span class="pill-tag">Gift 2</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; flex-shrink:0;">
               <rect x="5" y="7" width="14" height="14" rx="3"></rect>
               <line x1="8" y1="2" x2="8" y2="7"></line>
               <line x1="16" y1="2" x2="16" y2="7"></line>
               <line x1="10" y1="14" x2="14" y2="14" stroke-width="2.5"></line>
             </svg>
-            <span>25W 고속충전기</span>
+            <span>고속충전기<br />(25W)</span>
           </div>
         </div>
       </div>
@@ -796,10 +799,10 @@
       </a>
     </div>
 
-    <!-- PROGRAM 02: 캠퍼스 Zone -->
+    <!-- PROGRAM 02: 캠퍼스 존 -->
     <div class="sec-header scroll-target" id="section-zone">
       <span class="sec-tag">PROGRAM 02</span>
-      <h2 class="sec-title">캠퍼스 Zone</h2>
+      <h2 class="sec-title">캠퍼스 존</h2>
       <p class="sec-sub">캠퍼스 광장에서 만나는 4가지 현장 혜택과 즐길 거리</p>
     </div>
 
