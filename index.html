@@ -535,7 +535,7 @@
       border-radius: 4px;
     }
 
-    /* 순회 일정 */
+    /* 순회 일정 (가로 슬라이드 형태) */
     .tour-scroll-header {
       display: flex;
       justify-content: space-between;
@@ -554,7 +554,7 @@
       padding-bottom: 14px;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
     .tour-horizontal-scroll::-webkit-scrollbar {
       display: none;
@@ -595,6 +595,115 @@
       background: #EEF2FF;
       color: var(--primary-blue);
       width: fit-content;
+    }
+
+    /* 전국 순회 일정 하단 지도 영역 */
+    .tour-map-card {
+      background: var(--card-white);
+      border: 1.5px solid var(--border-color);
+      border-radius: 20px;
+      padding: 20px 16px 16px;
+      box-shadow: 0 4px 18px rgba(27, 22, 200, 0.04);
+      margin-bottom: 30px;
+    }
+    .tour-map-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0f0f5;
+    }
+    .tour-map-header h4 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--deep-navy);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tour-map-header span {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+    .tour-map-wrapper {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background: linear-gradient(180deg, #FAF9FF 0%, #FFFFFF 100%);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(27, 22, 200, 0.06);
+    }
+    .korea-bg-svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      z-index: 5;
+    }
+    .pin-label {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(27, 22, 200, 0.2);
+      color: var(--deep-navy);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 3px;
+    }
+    .pin-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--primary-blue);
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(27, 22, 200, 0.4);
+    }
+    /* 충남대 첫 거점 강조 */
+    .map-pin.active {
+      z-index: 10;
+    }
+    .map-pin.active .pin-label {
+      background: var(--primary-blue);
+      color: #ffffff;
+      border-color: var(--primary-blue);
+      box-shadow: 0 4px 10px rgba(27, 22, 200, 0.35);
+    }
+    .map-pin.active .pin-dot {
+      background: #ea002c;
+      width: 12px;
+      height: 12px;
+      position: relative;
+    }
+    .map-pin.active .pin-dot::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(234, 0, 44, 0.35);
+      animation: pinPulse 1.8s infinite ease-out;
+    }
+    @keyframes pinPulse {
+      0% { transform: scale(0.6); opacity: 1; }
+      100% { transform: scale(1.8); opacity: 0; }
     }
 
     /* 푸터 */
@@ -793,7 +902,7 @@
         </div>
       </div>
 
-      <!-- 사전 참석 예약 버튼 (구글 폼 링크 연동) -->
+      <!-- 사전 참석 예약 버튼 -->
       <a href="https://forms.gle/NPotVZFdjNyKo794A" target="_blank" rel="noopener noreferrer" class="reserve-btn">
         코칭 클래스 사전 참석 예약하기 ➔
       </a>
@@ -848,7 +957,7 @@
       </div>
     </div>
 
-    <!-- 순회 일정 (가로 슬라이드 스크롤 형태) -->
+    <!-- 순회 일정 (가로 슬라이드 형태) -->
     <div class="tour-scroll-header scroll-target" id="section-tour">
       <div>
         <span class="sec-tag">CAMPUS TOUR</span>
@@ -857,6 +966,7 @@
       <span class="scroll-hint">옆으로 넘겨보기 ➔</span>
     </div>
 
+    <!-- 1. 가로 슬라이드 스크롤 카드 유지 -->
     <div class="tour-horizontal-scroll">
       <!-- 1회차: 충남대학교 -->
       <div class="tour-snap-card active">
@@ -913,6 +1023,65 @@
           <div class="snap-date">11월 4일 (수)</div>
         </div>
         <span class="snap-badge">7회차</span>
+      </div>
+    </div>
+
+    <!-- 2. 전국 순회 지도 영역 (기존 슬라이드 아래 추가) -->
+    <div class="tour-map-card">
+      <div class="tour-map-header">
+        <h4>🗺️ 전국 투어 맵</h4>
+        <span>총 7개 거점 순회</span>
+      </div>
+      <div class="tour-map-wrapper">
+        <!-- 경량화된 한반도 윤곽 및 거점 연결선 벡터 SVG -->
+        <svg class="korea-bg-svg" viewBox="0 0 340 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 한반도 개략 실루엣 -->
+          <path d="M120 40 C140 35, 175 45, 185 70 C195 95, 235 125, 245 160 C255 195, 240 230, 250 265 C245 285, 220 305, 195 305 C170 305, 130 315, 110 295 C90 275, 80 240, 95 210 C100 200, 90 180, 85 160 C80 135, 90 100, 105 80 Z" fill="#ECECF8" opacity="0.6"/>
+          <!-- 주요 투어 연결 라인 가이드 -->
+          <path d="M125 90 L160 145 L135 175 L120 220 L110 270 M135 175 L225 215 L245 270" stroke="rgba(27, 22, 200, 0.18)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        </svg>
+
+        <!-- 6회차: 서울시립대 (서울) -->
+        <div class="map-pin" style="top: 24%; left: 37%;">
+          <div class="pin-label">6. 서울시립대</div>
+          <div class="pin-dot"></div>
+        </div>
+
+        <!-- 2회차: 충북대 (청주) -->
+        <div class="map-pin" style="top: 38%; left: 47%;">
+          <div class="pin-label">2. 충북대</div>
+          <div class="pin-dot"></div>
+        </div>
+
+        <!-- 1회차: 충남대 (대전 - 킥오프 하이라이트) -->
+        <div class="map-pin active" style="top: 46%; left: 40%;">
+          <div class="pin-label">1. 충남대(9.30)</div>
+          <div class="pin-dot"></div>
+        </div>
+
+        <!-- 4회차: 육군부사관학교 (익산) -->
+        <div class="map-pin" style="top: 58%; left: 35%;">
+          <div class="pin-label">4. 육군부사관학교</div>
+          <div class="pin-dot"></div>
+        </div>
+
+        <!-- 3회차: 대구대 (경산/대구) -->
+        <div class="map-pin" style="top: 56%; left: 66%;">
+          <div class="pin-label">3. 대구대</div>
+          <div class="pin-dot"></div>
+        </div>
+
+        <!-- 5회차: 전남대 (광주) -->
+        <div class="map-pin" style="top: 71%; left: 32%;">
+          <div class="pin-label">5. 전남대</div>
+          <div class="pin-dot"></div>
+        </div>
+
+        <!-- 7회차: 부산대 (부산) -->
+        <div class="map-pin" style="top: 71%; left: 72%;">
+          <div class="pin-label">7. 부산대</div>
+          <div class="pin-dot"></div>
+        </div>
       </div>
     </div>
 
