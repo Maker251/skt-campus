@@ -630,8 +630,8 @@
     .tour-map-wrapper {
       position: relative;
       width: 100%;
-      height: 440px;
-      background: linear-gradient(180deg, #F0F7FC 0%, #FFFFFF 100%);
+      height: 420px;
+      background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(27, 22, 200, 0.08);
@@ -1010,119 +1010,85 @@
       </div>
     </div>
 
-    <!-- 2. 전국 순회 지도 영역 (첨부해주신 실제 지도 윤곽 정밀 반영 SVG) -->
+    <!-- 2. 전국 순회 지도 영역 (남한 실제 해안선 윤곽 및 대학 날짜 표기) -->
     <div class="tour-map-card">
       <div class="tour-map-header">
         <h4>🗺️ 전국 투어 맵</h4>
         <span>총 7개 거점 순회</span>
       </div>
       <div class="tour-map-wrapper">
-        <!-- 원본 지형을 정확히 트레이싱한 남한 본토, 다도해, 제주도, 울릉도 SVG -->
-        <svg class="south-korea-svg" viewBox="0 0 500 550" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- 남한 본토 해안선 -->
-          <path d="M 280 20 
-                   C 285 28, 298 48, 305 65 
-                   C 320 90, 335 105, 342 120 
-                   C 358 145, 360 160, 362 180 
-                   C 362 205, 360 215, 360 230 
-                   C 358 245, 360 255, 356 265 
-                   C 362 270, 368 274, 370 280 
-                   C 368 290, 358 300, 356 312 
-                   C 354 325, 350 338, 345 348 
-                   C 338 355, 332 360, 320 365 
-                   C 310 368, 305 362, 298 370 
-                   C 290 378, 282 375, 275 385 
-                   C 265 390, 258 380, 250 395 
-                   C 242 400, 235 395, 225 408 
-                   C 215 412, 210 405, 202 418 
-                   C 192 418, 185 410, 178 420 
-                   C 168 425, 165 415, 160 410 
-                   C 162 398, 165 385, 168 372 
-                   C 165 365, 160 358, 155 352 
-                   C 152 342, 158 335, 160 325 
-                   C 158 312, 152 305, 155 292 
-                   C 152 282, 160 275, 165 265 
-                   C 162 258, 155 252, 150 248 
-                   C 142 242, 140 230, 138 220 
-                   C 142 210, 148 205, 145 195 
-                   C 140 188, 132 180, 135 170 
-                   C 138 160, 150 155, 152 145 
-                   C 148 135, 140 128, 145 118 
-                   C 152 108, 160 98, 165 88 
-                   C 172 75, 182 65, 192 52 
-                   C 210 48, 240 50, 260 48 
-                   C 270 42, 275 30, 280 20 Z" 
-                fill="#EEF4FA" stroke="#C5D7EA" stroke-width="2" stroke-linejoin="round"/>
+        <!-- 사실적인 대한민국 남한 해안선 및 도서 벡터 SVG -->
+        <svg class="south-korea-svg" viewBox="0 0 360 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 남한 본토 지형선 -->
+          <path d="M 82 28 
+                   C 105 28, 140 25, 175 22 
+                   C 210 20, 245 28, 268 36
+                   C 264 55, 272 82, 282 118 
+                   C 292 152, 298 185, 305 220 
+                   C 310 238, 308 248, 298 260
+                   C 304 270, 296 286, 286 304 
+                   C 274 322, 252 334, 235 338 
+                   C 220 342, 205 336, 192 344
+                   C 180 350, 165 352, 150 342 
+                   C 138 335, 122 346, 108 336
+                   C 95 328, 88 310, 80 295
+                   C 76 285, 84 270, 78 255
+                   C 72 240, 86 225, 88 208
+                   C 90 195, 78 186, 74 172
+                   C 70 156, 56 142, 64 125
+                   C 70 115, 62 98, 66 82
+                   C 70 65, 80 48, 82 28 Z" 
+                fill="#EEF0FA" stroke="#D3D7EE" stroke-width="1.8" stroke-linejoin="round"/>
           
-          <!-- 태안반도 & 경기만 만입부 -->
-          <path d="M 148 168 C 125 172, 120 188, 130 198 C 135 204, 142 210, 146 222 Z" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.6"/>
-          <!-- 강화도 & 서해 연안 도서군 -->
-          <path d="M 145 92 C 140 90, 135 98, 142 105 Z" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.2"/>
-          <circle cx="132" cy="115" r="3" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1"/>
-          <circle cx="125" cy="138" r="3.5" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1"/>
-
-          <!-- 남해 다도해 및 거제도/진도 해역 -->
-          <path d="M 302 378 C 308 375, 316 382, 312 390 C 306 394, 298 388, 302 378 Z" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.4"/>
-          <path d="M 152 418 C 145 422, 142 432, 150 435 C 158 436, 160 425, 152 418 Z" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.4"/>
-          <circle cx="218" cy="425" r="4" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.2"/>
-          <circle cx="240" cy="418" r="4.5" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.2"/>
-          <circle cx="262" cy="412" r="3.5" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.2"/>
-          <circle cx="188" cy="435" r="3.5" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.2"/>
-
           <!-- 제주도 -->
-          <path d="M 142 510 
-                   C 146 502, 165 496, 185 496 
-                   C 198 498, 208 505, 206 515 
-                   C 202 525, 188 532, 172 532 
-                   C 155 530, 140 522, 142 510 Z" 
-                fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.8"/>
-
-          <!-- 울릉도 -->
-          <ellipse cx="455" cy="125" rx="7" ry="5.5" fill="#EEF4FA" stroke="#C5D7EA" stroke-width="1.4"/>
-
-          <!-- 순회 연결 루트 가이드 라인 -->
-          <path d="M 188 122 L 235 178 L 194 218 L 175 272 L 168 335 M 194 218 L 305 265 L 322 338" 
-                stroke="rgba(27, 22, 200, 0.22)" stroke-width="1.8" stroke-dasharray="4 4"/>
+          <ellipse cx="106" cy="390" rx="22" ry="12" fill="#EEF0FA" stroke="#D3D7EE" stroke-width="1.5"/>
+          <!-- 울릉도 / 독도 -->
+          <circle cx="330" cy="116" r="4.5" fill="#EEF0FA" stroke="#D3D7EE" stroke-width="1.2"/>
+          <circle cx="346" cy="124" r="2.5" fill="#EEF0FA" stroke="#D3D7EE" stroke-width="1.2"/>
+          
+          <!-- 순회 연결선 가이드 -->
+          <path d="M 132 108 L 178 162 L 140 198 L 122 246 L 114 298 M 140 198 L 244 235 L 268 295" 
+                stroke="rgba(27, 22, 200, 0.22)" stroke-width="1.5" stroke-dasharray="3 3"/>
         </svg>
 
-        <!-- 6. 서울시립대(11.2) [서울: 북서부 내륙] -->
-        <div class="map-pin" style="top: 22%; left: 38%;">
+        <!-- 6. 서울시립대 (서울) -->
+        <div class="map-pin" style="top: 26%; left: 37%;">
           <div class="pin-label">6. 서울시립대(11.2)</div>
           <div class="pin-dot"></div>
         </div>
 
-        <!-- 2. 충북대(10.7) [충북 청주: 중부 내륙] -->
-        <div class="map-pin" style="top: 36%; left: 48%;">
+        <!-- 2. 충북대 (청주) -->
+        <div class="map-pin" style="top: 39%; left: 49%;">
           <div class="pin-label">2. 충북대(10.7)</div>
           <div class="pin-dot"></div>
         </div>
 
-        <!-- 1. 충남대(9.30) [대전: 충청 거점 / 파란색 하이라이트 박스] -->
-        <div class="map-pin active" style="top: 45%; left: 39%;">
+        <!-- 1. 충남대 (대전 - 1회차 블루 상자 하이라이트) -->
+        <div class="map-pin active" style="top: 48%; left: 39%;">
           <div class="pin-label">1. 충남대(9.30)</div>
           <div class="pin-dot"></div>
         </div>
 
-        <!-- 4. 육군부사관학교(10.26) [전북 익산] -->
-        <div class="map-pin" style="top: 56%; left: 35%;">
+        <!-- 4. 육군부사관학교 (익산) -->
+        <div class="map-pin" style="top: 59%; left: 34%;">
           <div class="pin-label">4. 육군부사관학교(10.26)</div>
           <div class="pin-dot"></div>
         </div>
 
-        <!-- 3. 대구대(10.14) [경북 경산/대구: 영남 내륙] -->
-        <div class="map-pin" style="top: 54%; left: 63%;">
+        <!-- 3. 대구대 (경산/대구) -->
+        <div class="map-pin" style="top: 56%; left: 68%;">
           <div class="pin-label">3. 대구대(10.14)</div>
           <div class="pin-dot"></div>
         </div>
 
-        <!-- 5. 전남대(10.28) [광주: 호남 남부 거점] -->
-        <div class="map-pin" style="top: 69%; left: 33%;">
+        <!-- 5. 전남대 (광주) -->
+        <div class="map-pin" style="top: 71%; left: 32%;">
           <div class="pin-label">5. 전남대(10.28)</div>
           <div class="pin-dot"></div>
         </div>
 
-        <!-- 7. 부산대(11.4) [부산: 동남권 해안 거점] -->
-        <div class="map-pin" style="top: 70%; left: 66%;">
+        <!-- 7. 부산대 (부산) -->
+        <div class="map-pin" style="top: 71%; left: 74%;">
           <div class="pin-label">7. 부산대(11.4)</div>
           <div class="pin-dot"></div>
         </div>
