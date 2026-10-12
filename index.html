@@ -423,6 +423,15 @@
       line-height: 1.35;
       display: block;
     }
+    /* 4번 수정: 연사명 크기 확대 및 볼드 스타일 */
+    .tt-speaker {
+      display: inline-block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #191f28;
+      margin-top: 2px;
+      margin-bottom: 1px;
+    }
 
     /* 웰컴 기프트 배너 */
     .gift-box-wrap {
@@ -446,7 +455,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
     }
     .gift-pill {
       background: #ffffff;
@@ -469,6 +478,7 @@
       border-radius: 3px;
       align-self: flex-start;
       margin-top: 2px;
+      flex-shrink: 0;
     }
 
     /* 코칭 클래스 내부 사전 참석 예약 버튼 */
@@ -706,16 +716,17 @@
     <div class="sec-header scroll-target" id="section-coaching">
       <span class="sec-tag">PROGRAM 01</span>
       <h2 class="sec-title">코칭 클래스</h2>
-      <!-- 1번 수정: SK 출신 임원이 전하는 실전 경험과 성장 노하우 -->
-      <p class="sec-sub">SK 출신 임원이 전하는 실전 경험과 성장 노하우</p>
+      <!-- 1번 수정: SK그룹 출신 임원으로 변경 -->
+      <p class="sec-sub">SK그룹 출신 임원이 전하는 실전 경험과 성장 노하우</p>
     </div>
 
     <div class="coaching-card">
-      <span class="coaching-badge">세미나 & 멘토링</span>
-      <!-- 2번 수정: SK 출신 임원이 (줄바꿈) 실전 성장 노하우 -->
-      <h3 class="coaching-main-title">SK 출신 임원이 <br />실전 성장 노하우 &lt;코칭 클래스&gt;</h3>
+      <!-- 2번 수정: 세미나로 변경 -->
+      <span class="coaching-badge">세미나</span>
+      <h3 class="coaching-main-title">SK그룹 출신 임원이 <br />실전 성장 노하우 &lt;코칭 클래스&gt;</h3>
+      <!-- 3번 수정: 설명 문구 변경 -->
       <p class="coaching-lead-text">
-        학업, 진로, 취업에서 마주하는 고민을 나누고 SK 전문가들이 현업에서 깨달은 실전 인사이트를 공유합니다.
+        SK그룹 출신 임원들이 현업에서 깨달은 실전 인사이트를 공유합니다.
       </p>
 
       <!-- 강사 2인 프로필 -->
@@ -741,7 +752,7 @@
         </div>
       </div>
 
-      <!-- 타임테이블 (3번, 4번 수정 반영) -->
+      <!-- 타임테이블 -->
       <div class="timetable-box">
         <div class="timetable-header">
           <span class="tt-time">TIME</span>
@@ -765,16 +776,18 @@
           <div class="tt-time">14:05 ~ 14:50</div>
           <div class="tt-desc">
             <strong>세미나 1. 조직문화의 이해와 SK에서의 적용</strong>
-            <!-- 3번 수정: 최경락 위원 (줄바꿈) 괄호 제거 후 前 SK 이노베이션 부사장(HR) -->
-            <span>최경락 위원<br />前 SK 이노베이션 부사장(HR)<br />- 조직문화를 알면 취업이 보인다</span>
+            <!-- 4번 수정: 텍스트 크기 확대 및 볼드 처리 -->
+            <span class="tt-speaker">최경락 위원</span>
+            <span>前 SK 이노베이션 부사장(HR)<br />- 조직문화를 알면 취업이 보인다</span>
           </div>
         </div>
         <div class="timetable-row">
           <div class="tt-time">14:50 ~ 15:35</div>
           <div class="tt-desc">
             <strong>세미나 2. AI 시대의 슬기로운 대학생활</strong>
-            <!-- 4번 수정: 장홍성 SE컨설턴트 (줄바꿈) 괄호 제거 후 前 SK텔레콤 IoT/Data 사업단장 -->
-            <span>장홍성 SE컨설턴트<br />前 SK텔레콤 IoT/Data 사업단장<br />- 청년들의 고민 5가지를 AI의 관점에서 다시보기</span>
+            <!-- 4번 수정: 텍스트 크기 확대 및 볼드 처리 -->
+            <span class="tt-speaker">장홍성 SE컨설턴트</span>
+            <span>前 SK텔레콤 IoT/Data 사업단장<br />- 청년들의 고민 5가지를 AI의 관점에서 다시보기</span>
           </div>
         </div>
         <div class="timetable-row">
@@ -786,13 +799,19 @@
         </div>
       </div>
 
-      <!-- 참가자 전원 Welcome Gift 배너 -->
+      <!-- 6번 수정: Gift 1과 Gift 2 가운데 정렬 및 보조배터리 아이콘/줄바꿈 적용 -->
       <div class="gift-box-wrap">
         <div class="gift-box-title">참가자 전원에게 <span>Welcome Gift</span> 제공</div>
         <div class="gift-box-items">
           <div class="gift-pill">
             <span class="pill-tag">Gift 1</span>
-            <span>🔋 보조배터리<br />(5,000mAh)</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1b16c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; flex-shrink:0;">
+              <rect x="2" y="7" width="16" height="10" rx="2" ry="2"></rect>
+              <line x1="22" y1="11" x2="22" y2="13"></line>
+              <line x1="6" y1="11" x2="6" y2="13"></line>
+              <line x1="10" y1="11" x2="10" y2="13"></line>
+            </svg>
+            <span>보조배터리<br />(5,000mAh)</span>
           </div>
           <span style="font-weight: 800; color: #8b95a1;">+</span>
           <div class="gift-pill">
@@ -872,7 +891,7 @@
       <span class="scroll-hint">옆으로 넘겨보기 ➔</span>
     </div>
 
-    <!-- 5번 수정: 대구대학교 카드(active)를 첫 화면에 노출하도록 설정 -->
+    <!-- 순회 일정 카드 -->
     <div class="tour-horizontal-scroll" id="tourScroll">
       <!-- 1회차: 충남대학교 -->
       <div class="tour-snap-card">
@@ -984,12 +1003,11 @@
       }
     }
 
-    // 3. 순회 일정 가로 스크롤: 현재 회차인 대구대학교 카드가 첫 화면에 보이도록 스크롤 위치 조정
+    // 3. 순회 일정 가로 스크롤: 3회차 대구대학교 카드가 첫 화면에 보이도록 스크롤 위치 조정
     function alignActiveTourCard() {
       const activeCard = document.getElementById('currentCampusCard');
       const container = document.getElementById('tourScroll');
       if (activeCard && container) {
-        // active 카드가 가로 스크롤 뷰포트의 시작점에 오도록 이동
         const offsetLeft = activeCard.offsetLeft - container.offsetLeft;
         container.scrollTo({ left: offsetLeft, behavior: 'smooth' });
       }
