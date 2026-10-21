@@ -866,4 +866,141 @@
       </div>
     </div>
 
-    <!-- 순회 일정 (
+    <!-- 순회 일정 (가로 슬라이드 형태) -->
+    <div class="tour-scroll-header scroll-target" id="section-tour">
+      <div>
+        <span class="sec-tag">CAMPUS TOUR</span>
+        <h2 class="sec-title">전국 7개 학교 순회 일정</h2>
+      </div>
+      <span class="scroll-hint">옆으로 넘겨보기 ➔</span>
+    </div>
+
+    <!-- 순회 일정 카드: 5회차 전남대학교 활성화 -->
+    <div class="tour-horizontal-scroll" id="tourScroll">
+      <!-- 1회차: 충남대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-name">충남대학교</div>
+          <div class="snap-date">9월 30일 (수)</div>
+        </div>
+        <span class="snap-badge">1회차</span>
+      </div>
+      <!-- 2회차: 충북대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-name">충북대학교</div>
+          <div class="snap-date">10월 7일 (수)</div>
+        </div>
+        <span class="snap-badge">2회차</span>
+      </div>
+      <!-- 3회차: 대구대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-name">대구대학교</div>
+          <div class="snap-date">10월 14일 (수)</div>
+        </div>
+        <span class="snap-badge">3회차</span>
+      </div>
+      <!-- 4회차: 육군부사관학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-name">육군부사관학교</div>
+          <div class="snap-date">10월 26일 (월)</div>
+        </div>
+        <span class="snap-badge">4회차</span>
+      </div>
+      <!-- 5회차: 전남대학교 (Active) -->
+      <div class="tour-snap-card active" id="currentCampusCard">
+        <div>
+          <div class="snap-name">전남대학교</div>
+          <div class="snap-date">10월 28일 (수)</div>
+        </div>
+        <span class="snap-badge">5회차</span>
+      </div>
+      <!-- 6회차: 서울시립대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-name">서울시립대학교</div>
+          <div class="snap-date">11월 2일 (월)</div>
+        </div>
+        <span class="snap-badge">6회차</span>
+      </div>
+      <!-- 7회차: 부산대학교 -->
+      <div class="tour-snap-card">
+        <div>
+          <div class="snap-name">부산대학교</div>
+          <div class="snap-date">11월 4일 (수)</div>
+        </div>
+        <span class="snap-badge">7회차</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="footer-brand">SK telecom × 전남대학교</div>
+    <p style="opacity: 0.5;">© 2026 SK Telecom Co., Ltd. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('.scroll-target');
+
+    function setActiveTab(targetId) {
+      tabs.forEach(tab => {
+        if (tab.getAttribute('data-target') === targetId) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        setActiveTab(this.getAttribute('data-target'));
+      });
+    });
+
+    function onScroll() {
+      const scrollPos = window.scrollY + 120;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      if (window.scrollY + windowHeight >= docHeight - 30) {
+        setActiveTab('section-tour');
+        return;
+      }
+
+      let currentId = '';
+      sections.forEach(sec => {
+        if (sec.offsetTop <= scrollPos) {
+          currentId = sec.getAttribute('id');
+        }
+      });
+
+      if (currentId) {
+        setActiveTab(currentId);
+      }
+    }
+
+    // 5회차 전남대학교 카드가 첫 화면에 보이도록 가로 스크롤 정렬
+    function alignActiveTourCard() {
+      const activeCard = document.getElementById('currentCampusCard');
+      const container = document.getElementById('tourScroll');
+      if (activeCard && container) {
+        const offsetLeft = activeCard.offsetLeft - container.offsetLeft;
+        container.scrollTo({ left: offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', () => {
+      onScroll();
+      alignActiveTourCard();
+    });
+  </script>
+
+</body>
+</html>
